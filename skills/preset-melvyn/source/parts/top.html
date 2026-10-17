@@ -1,0 +1,149 @@
+      <div id="top">
+        <svg width="0" height="0" style="position:absolute"><defs>
+          <!-- encre riso : grain troué + bord légèrement irrégulier -->
+          <filter id="riso" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="1.15" numOctaves="1" seed="7" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -5.5 3.35" result="holes"/>
+            <feComposite in="SourceGraphic" in2="holes" operator="in" result="g"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="2" result="w"/>
+            <feDisplacementMap in="g" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs></svg>
+
+        <!-- HOOK 1 : ne poste plus… avant d'installer ces 5 skills Claude -->
+        <section id="s0" class="clip scene" data-start="0" data-duration="3.06" data-track-index="2"><div class="in">
+          <div id="s0a" class="c" style="top:470px;height:140px">
+            <div id="s0btn" style="display:flex;align-items:center;gap:22px;height:128px;padding:0 60px;border-radius:999px;background:var(--ink);color:#fff;font:700 52px/1 'Inter Tight';box-shadow:0 22px 50px rgba(0,0,0,.16)">Publier le réel</div>
+          </div>
+          <div id="s0stamp" class="abs riso" style="left:600px;top:420px;padding:14px 26px;border:7px solid var(--pink);border-radius:18px;color:var(--pink);font:800 44px/1 'Geist Mono';transform:rotate(-7deg)">PAS ENCORE</div>
+          <svg id="s0cur" class="abs" style="left:760px;top:640px" width="46" height="60" viewBox="0 0 23 30"><path d="M2 2v22l6-5.5 4 9 4-1.8-4-8.7h8.5z" fill="#111" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div class="c" style="top:300px;height:470px">
+            <div id="s0five" style="position:relative;width:440px;height:470px">
+              <div class="riso" style="position:absolute;left:-18px;top:12px;width:440px;text-align:center;font:900 560px/470px 'Inter Tight';letter-spacing:-12px;color:var(--pink)">5</div>
+              <div class="riso" style="position:absolute;left:0;top:0;width:440px;text-align:center;font:900 560px/470px 'Inter Tight';letter-spacing:-12px;color:var(--blue)">5</div>
+            </div>
+          </div>
+          <div class="c" style="top:784px;height:84px">
+            <div id="s0pill" class="card pill" style="padding:0 34px 0 22px">
+              <svg width="48" height="48" viewBox="-50 -50 100 100"><g fill="var(--pink)">{{CLAUDE}}</g></svg>skills Claude
+            </div>
+          </div>
+        </div></section>
+
+        <!-- HOOK 2 : gratuit sur GitHub, puis Claude ∩ équipe vidéo -->
+        <section id="s1" class="clip scene" data-start="3.06" data-duration="3.52" data-track-index="2"><div class="in">
+          <div class="c" style="top:450px;height:220px">
+            <div id="s1repo" class="card" style="position:relative;display:flex;align-items:center;gap:34px;width:680px;height:200px;padding:0 44px">
+              <div class="riso" style="width:112px;height:112px;border-radius:30px;background:var(--blue)"></div>
+              <div style="position:absolute;left:44px;top:44px;width:112px;height:112px;display:flex;align-items:center;justify-content:center;color:#fff;font:700 44px/1 'Geist Mono'">{ }</div>
+              <div><div class="mono" style="font:500 28px/1 'Geist Mono';color:var(--mute)">github.com/</div><div class="mono" style="margin-top:14px;font:700 46px/1 'Geist Mono';color:var(--ink)">claude-skills</div></div>
+              <div id="s1free" class="abs riso" style="right:-26px;top:-34px;padding:14px 26px;border-radius:999px;background:var(--pink);color:#fff;font:800 32px/1 'Geist Mono';transform:rotate(5deg)">GRATUIT</div>
+            </div>
+          </div>
+          <div id="s1L" class="abs riso" style="left:175px;top:325px;width:440px;height:440px;border-radius:50%;background:var(--pink)"></div>
+          <div id="s1R" class="abs riso" style="left:465px;top:325px;width:440px;height:440px;border-radius:50%;background:var(--blue)"></div>
+          <svg id="s1star" class="abs riso" style="left:460px;top:465px" width="160" height="160" viewBox="-80 -80 160 160"><polygon points="{{STAR9}}" fill="#1E1E1E"/></svg>
+          <div id="s1lt" class="abs" style="left:175px;top:515px;width:290px;text-align:center;color:#fff;font:800 56px/60px 'Inter Tight';letter-spacing:-1px">Claude</div>
+          <div id="s1rt" class="abs" style="left:615px;top:490px;width:290px;text-align:center;color:#fff;font:800 50px/56px 'Inter Tight';letter-spacing:-1px">équipe<br>vidéo</div>
+        </div></section>
+
+        <!-- STEP 1 : video-viral -->
+        <section id="s2" class="clip scene" data-start="6.58" data-duration="3.96" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num riso">01</span>video-viral</div></div>
+          <svg id="s2burst" class="abs riso" style="left:330px;top:390px" width="420" height="420" viewBox="-210 -210 420 420"><polygon points="{{BURST12}}" fill="var(--pink)"/></svg>
+          <div class="c" style="top:430px;height:340px;gap:36px">
+            <div class="s2r card" style="width:190px;height:330px;padding:12px"><div style="height:100%;border-radius:20px;background:#ECE9E3;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:34px solid #C9C5BD;border-top:21px solid transparent;border-bottom:21px solid transparent;margin-left:8px"></div></div></div>
+            <div id="s2mid" class="s2r card" style="width:190px;height:330px;padding:12px"><div style="height:100%;border-radius:20px;background:#ECE9E3;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:34px solid #0E0E0E;border-top:21px solid transparent;border-bottom:21px solid transparent;margin-left:8px"></div></div></div>
+            <div class="s2r card" style="width:190px;height:330px;padding:12px"><div style="height:100%;border-radius:20px;background:#ECE9E3;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:34px solid #C9C5BD;border-top:21px solid transparent;border-bottom:21px solid transparent;margin-left:8px"></div></div></div>
+          </div>
+          <div class="c" style="top:798px;height:66px"><div id="s2niche" class="card chipui"># ta niche</div></div>
+          <div class="c" style="top:798px;height:66px"><div id="s2hook" class="card chipui"><span style="color:var(--pink)">●</span>hook 0–3 s</div></div>
+        </div></section>
+
+        <!-- STEP 2 : video-script -->
+        <section id="s3" class="clip scene" data-start="10.54" data-duration="3.16" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num riso">02</span>video-script</div></div>
+          <div id="s3doc" class="abs card" style="left:320px;top:500px;width:440px;height:340px;padding:36px 40px">
+            <div class="mono" style="font:600 28px/1 'Geist Mono';color:var(--mute)">script · semaine</div>
+            <div class="s3l" style="margin-top:34px;width:92%;height:16px;border-radius:8px;background:#E7E3DC;transform-origin:0 50%"></div>
+            <div class="s3l" style="margin-top:22px;width:76%;height:16px;border-radius:8px;background:#E7E3DC;transform-origin:0 50%"></div>
+            <div class="s3l" style="margin-top:22px;width:84%;height:16px;border-radius:8px;background:#E7E3DC;transform-origin:0 50%"></div>
+            <div class="s3l" style="margin-top:22px;width:60%;height:16px;border-radius:8px;background:#E7E3DC;transform-origin:0 50%"></div>
+            <div class="s3l" style="margin-top:22px;width:70%;height:16px;border-radius:8px;background:#E7E3DC;transform-origin:0 50%"></div>
+          </div>
+          <div class="s3c abs card chipui" style="left:110px;top:418px;transform:rotate(-6deg)"><span class="riso" style="color:var(--pink)">✦</span>accroche 1</div>
+          <div class="s3c abs card chipui" style="left:400px;top:396px"><span class="riso" style="color:var(--pink)">✦</span>accroche 2</div>
+          <div class="s3c abs card chipui" style="left:690px;top:418px;transform:rotate(6deg)"><span class="riso" style="color:var(--pink)">✦</span>accroche 3</div>
+        </div></section>
+
+        <!-- STEP 3 : humanize -->
+        <section id="s4" class="clip scene" data-start="13.70" data-duration="2.14" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num riso">03</span>humanize</div></div>
+          <div class="c" style="top:450px;height:300px">
+            <div id="s4q" class="card" style="position:relative;width:800px;padding:46px 54px;font:500 44px/1.32 'Inter Tight';color:var(--ink)">« Dans un monde en constante évolution, il est crucial de… »
+              <div id="s4hl" class="abs riso" style="left:40px;right:40px;top:50%;height:22px;margin-top:-11px;border-radius:11px;background:var(--pink);transform-origin:0 50%"></div>
+            </div>
+          </div>
+          <div class="c" style="top:470px;height:240px"><div id="s4ok" class="ok" style="width:220px;height:220px"><svg width="96" height="96" viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        </div></section>
+
+        <!-- STEP 4 : video-edit -->
+        <section id="s5" class="clip scene" data-start="15.84" data-duration="4.22" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num riso">04</span>video-edit</div></div>
+          <svg class="abs" style="left:0;top:0" width="1080" height="960"><line id="s5l1" x1="300" y1="585" x2="420" y2="585" stroke="var(--pink)" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round"/><line id="s5l2" x1="660" y1="585" x2="780" y2="585" stroke="var(--pink)" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round"/></svg>
+          <div id="s5a" class="abs card" style="left:120px;top:500px;width:170px;height:170px;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:44px solid #0E0E0E;border-top:27px solid transparent;border-bottom:27px solid transparent;margin-left:10px"></div></div>
+          <div id="s5b" class="abs" style="left:430px;top:475px;width:220px;height:220px">
+            <div class="riso" style="position:absolute;inset:0;border-radius:58px;background:var(--pink)"></div>
+            <svg style="position:absolute;left:55px;top:55px" width="110" height="110" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg>
+          </div>
+          <div id="s5c" class="abs card" style="left:790px;top:500px;width:170px;height:170px;display:flex;align-items:center;justify-content:center;font:800 40px/1 'Geist Mono';color:var(--ink)">MP4
+            <div id="s5ok" class="abs ok" style="right:-18px;top:-18px;width:64px;height:64px"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="s5t abs mono" style="left:120px;top:712px;width:170px;text-align:center;font:600 28px/1 'Geist Mono';color:var(--mute)">rush</div>
+          <div class="s5t abs mono" style="left:430px;top:724px;width:220px;text-align:center;font:600 28px/1 'Geist Mono';color:var(--ink)">montage</div>
+          <div class="s5t abs mono" style="left:790px;top:712px;width:170px;text-align:center;font:600 28px/1 'Geist Mono';color:var(--mute)">prêt</div>
+        </div></section>
+
+        <!-- STEP 5 : long-to-short-videos -->
+        <section id="s6" class="clip scene" data-start="20.06" data-duration="4.30" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num riso">05</span>long-to-short</div></div>
+          <div class="c" style="top:392px;height:60px"><div id="s6fav" class="mono" style="display:flex;align-items:center;gap:12px;font:600 28px/1 'Geist Mono';color:var(--mute)"><span class="riso" style="color:var(--pink);font-size:34px">♥</span>mon préféré</div></div>
+          <div id="s6long" class="abs" style="left:230px;top:490px;width:620px;height:350px">
+            <div class="riso" style="position:absolute;inset:0;border-radius:34px;background:var(--blue)"></div>
+            <div style="position:absolute;left:50%;top:50%;width:0;height:0;margin:-34px 0 0 -20px;border-left:58px solid #fff;border-top:34px solid transparent;border-bottom:34px solid transparent"></div>
+          </div>
+          <div class="s6s abs" style="left:255px;top:488px;width:170px;height:300px"><div class="riso" style="position:absolute;inset:0;border-radius:28px;background:var(--pink)"></div><div style="position:absolute;left:50%;top:50%;width:0;height:0;margin:-22px 0 0 -12px;border-left:36px solid #fff;border-top:22px solid transparent;border-bottom:22px solid transparent"></div></div>
+          <div class="s6s abs" style="left:455px;top:488px;width:170px;height:300px"><div class="riso" style="position:absolute;inset:0;border-radius:28px;background:var(--pink)"></div><div style="position:absolute;left:50%;top:50%;width:0;height:0;margin:-22px 0 0 -12px;border-left:36px solid #fff;border-top:22px solid transparent;border-bottom:22px solid transparent"></div></div>
+          <div class="s6s abs" style="left:655px;top:488px;width:170px;height:300px"><div class="riso" style="position:absolute;inset:0;border-radius:28px;background:var(--pink)"></div><div style="position:absolute;left:50%;top:50%;width:0;height:0;margin:-22px 0 0 -12px;border-left:36px solid #fff;border-top:22px solid transparent;border-bottom:22px solid transparent"></div></div>
+        </div></section>
+
+        <!-- Juste des fichiers texte, 0 € -->
+        <section id="s7" class="clip scene" data-start="24.36" data-duration="3.12" data-track-index="2"><div class="in">
+          <div id="s7back" class="abs riso" style="left:330px;top:500px;width:420px;height:280px;border-radius:30px;background:var(--blue)"></div>
+          <div id="s7tab" class="abs riso" style="left:330px;top:466px;width:170px;height:70px;border-radius:24px 24px 0 0;background:var(--blue)"></div>
+          <div class="s7d abs card" style="left:330px;top:330px;width:100px;height:126px;border-radius:18px;transform:rotate(-14deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" style="left:405px;top:306px;width:100px;height:126px;border-radius:18px;transform:rotate(-7deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" style="left:490px;top:296px;width:100px;height:126px;border-radius:18px"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" style="left:575px;top:306px;width:100px;height:126px;border-radius:18px;transform:rotate(7deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" style="left:650px;top:330px;width:100px;height:126px;border-radius:18px;transform:rotate(14deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div id="s7front" class="abs riso" style="left:318px;top:552px;width:444px;height:240px;border-radius:30px;background:var(--pink)"></div>
+          <div class="c" style="top:810px;height:56px"><div id="s7path" class="mono" style="font:600 30px/1 'Geist Mono';color:var(--mute)">~/skills · 5 fichiers .md</div></div>
+          <div class="c" style="top:804px;height:66px"><div id="s7zero" class="chipui" style="background:var(--ink);color:#fff">0 € · aucun compte</div></div>
+        </div></section>
+
+        <!-- CTA -->
+        <section id="s8" class="clip scene" data-start="27.48" data-duration="3.787" data-track-index="2"><div class="in">
+          <div class="c" style="top:440px;height:130px">
+            <div id="s8bar" class="card" style="display:flex;align-items:center;gap:24px;width:800px;height:124px;border-radius:999px;padding:0 22px 0 44px">
+              <div class="mono" style="font:600 46px/1 'Geist Mono';color:var(--ink)"><span id="s8typed"></span><span style="color:var(--pink)">|</span></div>
+              <div id="s8send" class="riso" style="margin-left:auto;width:86px;height:86px;border-radius:50%;background:var(--pink)"></div>
+              <svg class="abs" style="right:44px;top:39px" width="44" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </div>
+          </div>
+          <div class="c" style="top:618px;height:90px"><div id="s8sub" style="height:88px;padding:0 44px;border-radius:999px;background:var(--ink);color:#fff;font:700 38px/88px 'Inter Tight'">+ Abonne-toi</div></div>
+          <div class="c" style="top:400px;height:240px"><div id="s8ok" class="ok" style="width:220px;height:220px"><svg width="96" height="96" viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <svg id="s8cur" class="abs" style="left:720px;top:690px" width="46" height="60" viewBox="0 0 23 30"><path d="M2 2v22l6-5.5 4 9 4-1.8-4-8.7h8.5z" fill="#111" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div class="c" style="top:700px;height:66px"><div id="s8dm" class="card chipui"><span class="riso" style="color:var(--pink)">✦</span>DM · installation pas à pas</div></div>
+        </div></section>
+        <div id="grain"></div>
+      </div>

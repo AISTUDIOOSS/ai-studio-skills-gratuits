@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>5 skills Claude — split</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter Tight"; src: url("assets/fonts/InterTight-var.woff2") format("woff2"); font-weight: 100 900; }
+      @font-face { font-family: "Geist Mono"; src: url("assets/fonts/geist-mono-latin.woff2") format("woff2"); font-weight: 100 900; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+      @font-face { font-family: "Geist Mono"; src: url("assets/fonts/geist-mono-latin-ext.woff2") format("woff2"); font-weight: 100 900; unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+      :root { --cream: #F4EEE3; --ink: #1F1B16; --coral: #E8664A; --coralT: #C24A2E; --ochreD: #9E7216; --forest: #2F5D46; --ochre: #D9A441; --line: #E3D9C8; --mute: #8A7F70; --paper: #F3F1EC; --blue: #0F6FD0; --blue2: #9CC3F0; --blueD: #0A4C93; --blueHL: rgba(15,111,208,.32); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Inter Tight", sans-serif; color: var(--ink); background: var(--paper); }
+
+      /* moitié haute : panneau graphique — DA V2 : papier riso + UI épurée, une idée centrée par scène */
+      /* zone utile : y 270–870 (safe zone Instagram en haut, pastille de sous-titre en bas) */
+      #top { position: absolute; left: 0; top: 0; width: 1080px; height: 960px; overflow: hidden; background: var(--paper); }
+      #grain { position: absolute; inset: 0; z-index: 30; pointer-events: none; opacity: .55; mix-blend-mode: multiply;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .42  0 0 0 0 .40  0 0 0 0 .36  0 0 0 .5 0'/></filter><rect width='320' height='320' filter='url(%23n)'/></svg>"); }
+      .scene { position: absolute; inset: 0; }
+      .in { position: absolute; inset: 0; }
+      .abs { position: absolute; }
+      .c { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; align-items: center; }
+      .mono { font-family: "Geist Mono", monospace; }
+      .card { background: #fff; border-radius: 30px; box-shadow: 0 1px 2px rgba(20,20,20,.04), 0 20px 48px rgba(20,20,20,.08); }
+      .riso { filter: url(#riso); mix-blend-mode: multiply; }
+      /* en-tête d'étape : une seule pastille centrée */
+      .head { top: 280px; height: 84px; }
+      .pill { display: flex; align-items: center; gap: 18px; height: 84px; padding: 0 34px 0 14px; border-radius: 999px; font: 600 34px/1 "Geist Mono", monospace; color: var(--ink); }
+      .num { display: block; width: 58px; height: 58px; border-radius: 50%; background: var(--blue); color: #fff; font: 700 26px/58px "Geist Mono", monospace; text-align: center; }
+      .chipui { display: flex; align-items: center; gap: 12px; height: 66px; padding: 0 28px; border-radius: 999px; font: 600 28px/1 "Geist Mono", monospace; color: var(--ink); }
+      .ok { display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #0E0E0E; box-shadow: 0 22px 50px rgba(0,0,0,.18); }
+
+      /* moitié basse : visage */
+      #face { position: absolute; left: 0; top: 960px; width: 1080px; height: 960px; overflow: hidden; background: #2a2018; }
+      .fw { position: absolute; inset: 0; }
+      #vidA { position: absolute; left: -310px; top: -1960px; width: 1700px; height: 3022px; }
+      #vidB { position: absolute; left: -228px; top: -619px; width: 1537px; height: 2732px; }
+
+      /* pastille de sous-titre sur la jointure */
+      .cap { position: absolute; left: 0; top: 905px; width: 1080px; height: 110px; display: flex; align-items: center; justify-content: center; z-index: 40; }
+      .chip { display: block; white-space: nowrap; padding: 18px 30px; border-radius: 22px; background: #111; color: #fff; font: 800 58px/1 "Geist Mono", monospace; letter-spacing: -1px; box-shadow: 0 10px 26px rgba(0,0,0,.28); }
+      .chip .k { color: #5EA8FF; }
+    </style>
+  <style id="frame-preset-customizations">:root{}@font-face{font-family:"Frame Inter-700";src:url(assets/fonts/Inter-700.woff2) format("woff2");font-display:block}.cap.st-cap .tx,.cap.st-cap:not(:has(.tx)){font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}.pill.st-step .tx,.pill.st-step:not(:has(.tx)){color:#000000!important}#step1,#step1.cap>span,#step1 .tx{color:#000000!important}#step1{translate:0px 0px!important}#s2niche{translate:0px 0px!important}#s2hook{translate:0px 0px!important}#step2,#step2.cap>span,#step2 .tx{color:#000000!important}#step2{translate:0px 0px!important}#chip3{translate:0px 0px!important}#chip4{translate:0px 0px!important}#chip5{translate:0px 0px!important}#step3,#step3.cap>span,#step3 .tx{color:#000000!important}#step3{translate:0px 0px!important}#step4,#step4.cap>span,#step4 .tx{color:#000000!important}#step4{translate:0px 0px!important}#step5,#step5.cap>span,#step5 .tx{color:#000000!important}#step5{translate:0px 0px!important}#s7zero{translate:0px 0px!important}#s8dm{translate:0px 0px!important}#cap0,#cap0.cap>span,#cap0 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap0{translate:0px 0px!important}#cap1,#cap1.cap>span,#cap1 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap1{translate:0px 0px!important}#cap2,#cap2.cap>span,#cap2 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap2{translate:0px 0px!important}#cap3,#cap3.cap>span,#cap3 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap3{translate:0px 0px!important}#cap4,#cap4.cap>span,#cap4 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap4{translate:0px 0px!important}#cap5,#cap5.cap>span,#cap5 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap5{translate:0px 0px!important}#cap6,#cap6.cap>span,#cap6 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap6{translate:0px 0px!important}#cap7,#cap7.cap>span,#cap7 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap7{translate:0px 0px!important}#cap8,#cap8.cap>span,#cap8 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap8{translate:0px 0px!important}#cap9,#cap9.cap>span,#cap9 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap9{translate:0px 0px!important}#cap10,#cap10.cap>span,#cap10 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap10{translate:0px 0px!important}#cap11,#cap11.cap>span,#cap11 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap11{translate:0px 0px!important}#cap12,#cap12.cap>span,#cap12 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap12{translate:0px 0px!important}#cap13,#cap13.cap>span,#cap13 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap13{translate:0px 0px!important}#cap14,#cap14.cap>span,#cap14 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap14{translate:0px 0px!important}#cap15,#cap15.cap>span,#cap15 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap15{translate:0px 0px!important}#cap16,#cap16.cap>span,#cap16 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap16{translate:0px 0px!important}#cap17,#cap17.cap>span,#cap17 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap17{translate:0px 0px!important}#cap18,#cap18.cap>span,#cap18 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap18{translate:0px 0px!important}#cap19,#cap19.cap>span,#cap19 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap19{translate:0px 0px!important}#cap20,#cap20.cap>span,#cap20 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap20{translate:0px 0px!important}#cap21,#cap21.cap>span,#cap21 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap21{translate:0px 0px!important}#cap22,#cap22.cap>span,#cap22 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap22{translate:0px 0px!important}#cap23,#cap23.cap>span,#cap23 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap23{translate:0px 0px!important}#cap24,#cap24.cap>span,#cap24 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap24{translate:0px 0px!important}#cap25,#cap25.cap>span,#cap25 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap25{translate:0px 0px!important}#cap26,#cap26.cap>span,#cap26 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap26{translate:0px 0px!important}#cap27,#cap27.cap>span,#cap27 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap27{translate:0px 0px!important}#cap28,#cap28.cap>span,#cap28 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap28{translate:0px 0px!important}#cap29,#cap29.cap>span,#cap29 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap29{translate:0px 0px!important}#cap30,#cap30.cap>span,#cap30 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap30{translate:0px 0px!important}#cap31,#cap31.cap>span,#cap31 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap31{translate:0px 0px!important}#cap32,#cap32.cap>span,#cap32 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap32{translate:0px 0px!important}#cap33,#cap33.cap>span,#cap33 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap33{translate:0px 0px!important}#cap34,#cap34.cap>span,#cap34 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap34{translate:0px 0px!important}#cap35,#cap35.cap>span,#cap35 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap35{translate:0px 0px!important}#cap36,#cap36.cap>span,#cap36 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap36{translate:0px 0px!important}#cap37,#cap37.cap>span,#cap37 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap37{translate:0px 0px!important}#cap38,#cap38.cap>span,#cap38 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap38{translate:0px 0px!important}#cap39,#cap39.cap>span,#cap39 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap39{translate:0px 0px!important}#cap40,#cap40.cap>span,#cap40 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap40{translate:0px 0px!important}#cap41,#cap41.cap>span,#cap41 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap41{translate:0px 0px!important}#cap42,#cap42.cap>span,#cap42 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap42{translate:0px 0px!important}#cap43,#cap43.cap>span,#cap43 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap43{translate:0px 0px!important}#cap44,#cap44.cap>span,#cap44 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap44{translate:0px 0px!important}#cap45,#cap45.cap>span,#cap45 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap45{translate:0px 0px!important}#cap46,#cap46.cap>span,#cap46 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap46{translate:0px 0px!important}#cap47,#cap47.cap>span,#cap47 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap47{translate:0px 0px!important}#cap48,#cap48.cap>span,#cap48 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap48{translate:0px 0px!important}#cap49,#cap49.cap>span,#cap49 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap49{translate:0px 0px!important}#cap50,#cap50.cap>span,#cap50 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap50{translate:0px 0px!important}#cap51,#cap51.cap>span,#cap51 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap51{translate:0px 0px!important}#cap52,#cap52.cap>span,#cap52 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap52{translate:0px 0px!important}#cap53,#cap53.cap>span,#cap53 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap53{translate:0px 0px!important}#cap54,#cap54.cap>span,#cap54 .tx{font-size:46px!important;font-family:"Frame Inter-700"!important;letter-spacing:-0.02em!important}#cap54{translate:0px 0px!important}</style></head>
+  <body>
+    <div data-hf-id="hf-awad" id="root" data-composition-id="main" data-start="0" data-duration="31.267" data-width="1080" data-height="1920">
+
+      <!-- VISAGE : rush qualitycut (1 plan, 0–31,267 s), recadré dans la moitié basse -->
+      <div data-hf-id="hf-oimq" id="face">
+       <div data-hf-id="hf-ptye" id="faceFx" class="fw">
+        <div data-hf-id="hf-pfxv" id="fwA" class="fw">
+          <video data-hf-id="hf-1un1" id="vidA" class="clip" src="assets/video/rush.mp4" data-start="0" data-duration="31.267" data-media-start="0" data-track-index="0" data-has-audio="true" playsinline data-layout-allow-overflow></video>
+        </div>
+        <div data-hf-id="hf-gs20" id="fwB" class="fw">
+          <video data-hf-id="hf-4002" id="vidB" class="clip" src="assets/video/rush.mp4" data-start="0" data-duration="31.267" data-media-start="0" data-track-index="1" muted playsinline data-layout-allow-overflow></video>
+        </div>
+       </div>
+      </div>
+
+      <div id="top">
+        <svg width="0" height="0" style="position:absolute"><defs>
+          <!-- encre riso : grain troué + bord légèrement irrégulier -->
+          <filter id="riso" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="1.15" numOctaves="1" seed="7" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -5.5 3.35" result="holes"/>
+            <feComposite in="SourceGraphic" in2="holes" operator="in" result="g"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="2" result="w"/>
+            <feDisplacementMap in="g" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs></svg>
+
+        <!-- HOOK 1 : ne poste plus… avant d'installer ces 5 skills Claude -->
+        <section id="s0" class="clip scene" data-start="0" data-duration="3.06" data-track-index="2"><div class="in">
+          <div class="c" style="top:384px;height:150px"><div id="s0ig" style="width:146px;height:146px;border-radius:40px;background:var(--blue);display:flex;align-items:center;justify-content:center;box-shadow:0 22px 50px rgba(15,111,208,.28)"><svg width="92" height="92" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.15" fill="#fff" stroke="none"/></svg></div></div>
+          <div id="s0a" class="c" style="top:566px;height:140px">
+            <div id="s0btn" style="display:flex;align-items:center;gap:22px;height:128px;padding:0 60px;border-radius:999px;background:var(--ink);color:#fff;font:700 52px/1 'Inter Tight';box-shadow:0 22px 50px rgba(0,0,0,.16)">Publier le réel</div>
+          </div>
+          <div class="c" style="top:742px;height:90px"><div id="s0stamp" style="padding:14px 26px;border:7px solid var(--blueD);border-radius:18px;color:var(--blueD);font:800 44px/1 'Geist Mono';transform:rotate(-4deg)">PAS ENCORE</div></div>
+          <svg id="s0cur" class="abs" style="left:720px;top:720px" width="46" height="60" viewBox="0 0 23 30"><path d="M2 2v22l6-5.5 4 9 4-1.8-4-8.7h8.5z" fill="#111" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div class="c" style="top:300px;height:470px">
+            <div id="s0five" data-layout-allow-overlap style="position:relative;width:440px;height:470px">
+              <div class="riso" style="position:absolute;left:-18px;top:12px;width:440px;text-align:center;font:900 560px/470px 'Inter Tight';letter-spacing:-12px;color:var(--blue2)">5</div>
+              <div class="riso" style="position:absolute;left:0;top:0;width:440px;text-align:center;font:900 560px/470px 'Inter Tight';letter-spacing:-12px;color:var(--blue)">5</div>
+            </div>
+          </div>
+          <div class="c" style="top:784px;height:84px">
+            <div id="s0pill" class="card pill" style="padding:0 34px 0 22px">
+              <svg width="48" height="48" viewBox="-50 -50 100 100"><g fill="var(--blue)"><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(0)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(30)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(60)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(90)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(120)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(150)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(180)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(210)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(240)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(270)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(300)"/><rect x="-5.5" y="-46" width="11" height="40" rx="5.5" transform="rotate(330)"/></g></svg>skills Claude
+            </div>
+          </div>
+        </div></section>
+
+        <!-- HOOK 2 : gratuit sur GitHub, puis Claude ∩ équipe vidéo -->
+        <section id="s1" class="clip scene" data-start="3.06" data-duration="3.52" data-track-index="2"><div class="in">
+          <div class="c" style="top:450px;height:220px">
+            <div id="s1repo" class="card" style="position:relative;display:flex;align-items:center;gap:34px;width:680px;height:200px;padding:0 44px">
+              <div class="riso" style="width:112px;height:112px;border-radius:30px;background:var(--blue)"></div>
+              <div style="position:absolute;left:44px;top:44px;width:112px;height:112px;display:flex;align-items:center;justify-content:center;color:#fff;font:700 44px/1 'Geist Mono'">{ }</div>
+              <div><div class="mono" style="font:500 28px/1 'Geist Mono';color:var(--mute)">github.com/</div><div class="mono" style="margin-top:14px;font:700 46px/1 'Geist Mono';color:var(--ink)">claude-skills</div></div>
+              <div id="s1free" class="abs" style="right:-26px;top:-34px;padding:14px 26px;border-radius:999px;background:var(--blue);color:#fff;font:800 32px/1 'Geist Mono';transform:rotate(5deg)">GRATUIT</div>
+            </div>
+          </div>
+          <div id="s1L" class="abs riso" style="left:175px;top:325px;width:440px;height:440px;border-radius:50%;background:var(--blue2)"></div>
+          <div id="s1R" class="abs riso" style="left:465px;top:325px;width:440px;height:440px;border-radius:50%;background:var(--blue)"></div>
+          <svg id="s1star" class="abs riso" style="left:460px;top:465px" width="160" height="160" viewBox="-80 -80 160 160"><polygon points="0.0,-78.0 15.7,-43.2 50.1,-59.8 39.8,-23.0 76.8,-13.5 45.3,8.0 67.5,39.0 29.6,35.2 26.7,73.3 0.0,46.0 -26.7,73.3 -29.6,35.2 -67.5,39.0 -45.3,8.0 -76.8,-13.5 -39.8,-23.0 -50.1,-59.8 -15.7,-43.2" fill="#1E1E1E"/></svg>
+          <div id="s1lt" class="abs" style="left:175px;top:515px;width:290px;text-align:center;color:var(--blueD);font:800 56px/60px 'Inter Tight';letter-spacing:-1px">Claude</div>
+          <div id="s1rt" class="abs" style="left:615px;top:490px;width:290px;text-align:center;color:#fff;font:800 50px/56px 'Inter Tight';letter-spacing:-1px">équipe<br>vidéo</div>
+        </div></section>
+
+        <!-- STEP 1 : video-viral -->
+        <section id="s2" class="clip scene" data-start="6.58" data-duration="3.96" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num">01</span>video-viral</div></div>
+          <div class="c" style="top:412px;height:370px;gap:40px">
+            <div class="s2r card" style="position:relative;width:204px;height:356px;padding:10px"><div style="position:relative;height:100%;border-radius:22px;overflow:hidden;background:#222"><img data-layout-allow-overflow class="s2img" src="assets/img/r13.5.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="abs" style="left:10px;right:10px;top:10px;height:5px;border-radius:3px;background:rgba(255,255,255,.35)"><div class="s2pb" style="height:100%;border-radius:3px;background:#fff;transform-origin:0 50%"></div></div><div class="abs" style="left:10px;bottom:10px;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 10px;border-radius:999px;background:rgba(10,10,10,.72);color:#fff;font:700 22px/1 'Geist Mono'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-to="40000">0</span></div></div></div>
+            <div id="s2mid" class="s2r card" style="position:relative;width:204px;height:356px;padding:10px"><div style="position:relative;height:100%;border-radius:22px;overflow:hidden;background:#222"><img data-layout-allow-overflow class="s2img" src="assets/img/r2.2.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="abs" style="left:10px;right:10px;top:10px;height:5px;border-radius:3px;background:rgba(255,255,255,.35)"><div class="s2pb" style="height:100%;border-radius:3px;background:#fff;transform-origin:0 50%"></div></div><div class="abs" style="left:10px;bottom:10px;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 10px;border-radius:999px;background:rgba(10,10,10,.72);color:#fff;font:700 22px/1 'Geist Mono'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-to="300000">0</span></div></div><div id="s2ring" class="abs" style="left:-12px;top:-12px;right:-12px;bottom:-12px;border:6px solid var(--blue);border-radius:40px"></div><div id="s2tag" class="abs" style="right:-22px;top:-24px;padding:10px 16px;border-radius:999px;background:var(--blue);color:#fff;font:800 24px/1 'Geist Mono'">VIRAL</div></div>
+            <div class="s2r card" style="position:relative;width:204px;height:356px;padding:10px"><div style="position:relative;height:100%;border-radius:22px;overflow:hidden;background:#222"><img data-layout-allow-overflow class="s2img" src="assets/img/r23.0.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="abs" style="left:10px;right:10px;top:10px;height:5px;border-radius:3px;background:rgba(255,255,255,.35)"><div class="s2pb" style="height:100%;border-radius:3px;background:#fff;transform-origin:0 50%"></div></div><div class="abs" style="left:10px;bottom:10px;display:flex;align-items:center;gap:8px;height:40px;padding:0 14px 0 10px;border-radius:999px;background:rgba(10,10,10,.72);color:#fff;font:700 22px/1 'Geist Mono'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="vc" data-to="102000">0</span></div></div></div>
+          </div>
+          <div class="c" style="top:798px;height:66px"><div id="s2niche" class="card chipui"># ta niche</div></div>
+          <div class="c" style="top:798px;height:66px"><div id="s2hook" class="card chipui"><span style="color:var(--blue)">●</span>hook 0–3 s</div></div>
+        </div></section>
+
+        <!-- STEP 2 : video-script -->
+        <section id="s3" class="clip scene" data-start="10.54" data-duration="3.16" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num">02</span>video-script</div></div>
+          <div id="s3doc" class="abs card" style="left:250px;top:500px;width:580px;height:330px;padding:34px 42px">
+            <div class="mono" style="font:600 28px/1 'Geist Mono';color:var(--mute)">script · semaine</div>
+            <div class="s3row" style="display:flex;gap:16px;align-items:baseline;margin-top:30px;height:34px"><span class="mono" style="font:700 22px/1 'Geist Mono';color:var(--blue)">LUN</span><span class="s3t" data-text="Ne poste plus un seul réel…" style="font:600 30px/1 'Inter Tight';color:var(--ink);white-space:nowrap"></span><span class="s3k" style="display:inline-block;width:3px;height:30px;background:var(--blue);opacity:0;align-self:center"></span></div>
+            <div class="s3row" style="display:flex;gap:16px;align-items:baseline;margin-top:22px;height:34px"><span class="mono" style="font:700 22px/1 'Geist Mono';color:var(--blue)">MAR</span><span class="s3t" data-text="5 skills Claude gratuits" style="font:600 30px/1 'Inter Tight';color:var(--ink);white-space:nowrap"></span><span class="s3k" style="display:inline-block;width:3px;height:30px;background:var(--blue);opacity:0;align-self:center"></span></div>
+            <div class="s3row" style="display:flex;gap:16px;align-items:baseline;margin-top:22px;height:34px"><span class="mono" style="font:700 22px/1 'Geist Mono';color:var(--blue)">MER</span><span class="s3t" data-text="Monte ta vidéo en 1 clic" style="font:600 30px/1 'Inter Tight';color:var(--ink);white-space:nowrap"></span><span class="s3k" style="display:inline-block;width:3px;height:30px;background:var(--blue);opacity:0;align-self:center"></span></div>
+            <div class="s3row" style="display:flex;gap:16px;align-items:baseline;margin-top:22px;height:34px"><span class="mono" style="font:700 22px/1 'Geist Mono';color:var(--blue)">JEU</span><span class="s3t" data-text="1 vidéo longue → 3 shorts" style="font:600 30px/1 'Inter Tight';color:var(--ink);white-space:nowrap"></span><span class="s3k" style="display:inline-block;width:3px;height:30px;background:var(--blue);opacity:0;align-self:center"></span></div>
+          </div>
+          <div class="s3c abs card chipui" style="left:110px;top:418px;transform:rotate(-6deg)"><span class="riso" style="color:var(--blueD)">✦</span>accroche 1</div>
+          <div class="s3c abs card chipui" style="left:400px;top:396px"><span class="riso" style="color:var(--blueD)">✦</span>accroche 2</div>
+          <div class="s3c abs card chipui" style="left:690px;top:418px;transform:rotate(6deg)"><span class="riso" style="color:var(--blueD)">✦</span>accroche 3</div>
+        </div></section>
+
+        <!-- STEP 3 : humanize -->
+        <section id="s4" class="clip scene" data-start="13.70" data-duration="2.14" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num">03</span>humanize</div></div>
+          <div class="c" style="top:450px;height:300px">
+            <div id="s4q" class="card" style="position:relative;width:800px;padding:46px 54px;font:500 44px/1.32 'Inter Tight';color:var(--ink)">« Dans un monde <span id="s4hl" style="background:linear-gradient(var(--blueHL),var(--blueHL)) no-repeat 0 88% / 0% 0.78em;color:var(--ink)">en constante évolution</span>, il est crucial de… »
+            </div>
+          </div>
+          <div class="c" style="top:470px;height:240px"><div id="s4ok" class="ok" style="width:220px;height:220px"><svg width="96" height="96" viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        </div></section>
+
+        <!-- STEP 4 : video-edit -->
+        <section id="s5" class="clip scene" data-start="15.84" data-duration="4.22" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num">04</span>video-edit</div></div>
+          <svg class="abs" style="left:0;top:0" width="1080" height="960"><line id="s5l1" x1="300" y1="585" x2="420" y2="585" stroke="var(--blue)" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round"/><line id="s5l2" x1="660" y1="585" x2="780" y2="585" stroke="var(--blue)" stroke-width="6" stroke-dasharray="16 14" stroke-linecap="round"/></svg>
+          <div id="s5a" class="abs card" style="left:120px;top:500px;width:170px;height:170px;display:flex;align-items:center;justify-content:center"><div style="width:0;height:0;border-left:44px solid #0E0E0E;border-top:27px solid transparent;border-bottom:27px solid transparent;margin-left:10px"></div></div>
+          <div id="s5b" class="abs" style="left:430px;top:475px;width:220px;height:220px">
+            <div class="riso" style="position:absolute;inset:0;border-radius:58px;background:var(--blue)"></div>
+            <svg style="position:absolute;left:55px;top:55px" width="110" height="110" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg>
+          </div>
+          <div id="s5c" class="abs card" style="left:790px;top:500px;width:170px;height:170px;display:flex;align-items:center;justify-content:center;font:800 40px/1 'Geist Mono';color:var(--ink)">MP4
+            <div id="s5ok" class="abs ok" style="right:-18px;top:-18px;width:64px;height:64px"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="s5t abs mono" style="left:120px;top:712px;width:170px;text-align:center;font:600 28px/1 'Geist Mono';color:var(--mute)">rush</div>
+          <div class="s5t abs mono" style="left:430px;top:724px;width:220px;text-align:center;font:600 28px/1 'Geist Mono';color:var(--ink)">montage</div>
+          <div id="s5t3" class="abs mono" style="left:790px;top:712px;width:170px;text-align:center;font:600 28px/1 'Geist Mono';color:var(--mute)">prêt</div>
+        </div></section>
+
+        <!-- STEP 5 : long-to-short-videos -->
+        <section id="s6" class="clip scene" data-start="20.06" data-duration="4.30" data-track-index="2"><div class="in">
+          <div class="c head"><div class="card pill"><span class="num">05</span>long-to-short</div></div>
+          <div class="c" style="top:378px;height:60px"><div id="s6fav" class="mono" style="display:flex;align-items:center;gap:12px;font:600 28px/1 'Geist Mono';color:var(--mute)"><span class="riso" style="color:var(--blueD);font-size:34px">♥</span>mon préféré</div></div>
+          <div id="s6long" class="abs card" style="left:244px;top:452px;width:592px;padding:16px;border-radius:30px">
+            <div style="position:relative;width:560px;height:315px;border-radius:18px;overflow:hidden;background:#111">
+              <img data-layout-allow-overflow id="s6img" src="assets/img/yt.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+              <div class="abs" style="left:50%;top:50%;width:96px;height:66px;margin:-33px 0 0 -48px;border-radius:18px;background:rgba(10,10,10,.72)"><div style="position:absolute;left:38px;top:19px;width:0;height:0;border-left:26px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent"></div></div>
+              <div class="abs mono" style="right:12px;bottom:18px;padding:6px 10px;border-radius:8px;background:rgba(10,10,10,.8);color:#fff;font:700 20px/1 'Geist Mono'">24:12</div>
+              <div class="abs" style="left:0;right:0;bottom:0;height:7px;background:rgba(255,255,255,.35)"><div id="s6pb" style="height:100%;background:var(--blue);transform-origin:0 50%"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:14px;margin-top:16px">
+              <div style="width:44px;height:44px;border-radius:50%;background:url(assets/img/yt.jpg) 52% 20% / 260% auto"></div>
+              <div><div style="font:700 26px/1.1 'Inter Tight';color:var(--ink)">J'ai testé 5 skills Claude</div><div class="mono" style="margin-top:6px;font:500 19px/1 'Geist Mono';color:#6F665A">Melvynx · 24 min</div></div>
+            </div>
+          </div>
+          <div class="s6s abs" style="left:240px;top:478px;width:176px;height:312px;border-radius:26px;overflow:hidden;background:#111;box-shadow:0 20px 44px rgba(20,20,20,.14)"><img src="assets/img/r9.0.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="abs mono" style="left:10px;bottom:10px;display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:var(--blue);color:#fff;font:700 19px/1 'Geist Mono'"><span style="width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent"></span>0:42</div></div>
+          <div class="s6s abs" style="left:452px;top:478px;width:176px;height:312px;border-radius:26px;overflow:hidden;background:#111;box-shadow:0 20px 44px rgba(20,20,20,.14)"><img src="assets/img/r13.5.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="abs mono" style="left:10px;bottom:10px;display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:var(--blue);color:#fff;font:700 19px/1 'Geist Mono'"><span style="width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent"></span>0:38</div></div>
+          <div class="s6s abs" style="left:664px;top:478px;width:176px;height:312px;border-radius:26px;overflow:hidden;background:#111;box-shadow:0 20px 44px rgba(20,20,20,.14)"><img src="assets/img/r19.0.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div class="abs mono" style="left:10px;bottom:10px;display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:var(--blue);color:#fff;font:700 19px/1 'Geist Mono'"><span style="width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent"></span>0:51</div></div>
+        </div></section>
+
+        <!-- Juste des fichiers texte, 0 € -->
+        <section id="s7" class="clip scene" data-start="24.36" data-duration="3.12" data-track-index="2"><div class="in">
+          <div id="s7back" class="abs riso" style="left:330px;top:500px;width:420px;height:280px;border-radius:30px;background:var(--blue)"></div>
+          <div id="s7tab" class="abs riso" style="left:330px;top:466px;width:170px;height:70px;border-radius:24px 24px 0 0;background:var(--blue)"></div>
+          <div class="s7d abs card" data-layout-allow-occlusion style="left:330px;top:330px;width:100px;height:126px;border-radius:18px;transform:rotate(-14deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" data-layout-allow-occlusion style="left:405px;top:306px;width:100px;height:126px;border-radius:18px;transform:rotate(-7deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" data-layout-allow-occlusion style="left:490px;top:296px;width:100px;height:126px;border-radius:18px"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" data-layout-allow-occlusion style="left:575px;top:306px;width:100px;height:126px;border-radius:18px;transform:rotate(7deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div class="s7d abs card" data-layout-allow-occlusion style="left:650px;top:330px;width:100px;height:126px;border-radius:18px;transform:rotate(14deg)"><div class="mono" style="position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 22px/1 'Geist Mono';color:var(--mute)">.md</div></div>
+          <div id="s7front" class="abs riso" style="left:318px;top:552px;width:444px;height:240px;border-radius:30px;background:var(--blue2)"></div>
+          <div class="c" style="top:810px;height:56px"><div id="s7path" class="mono" style="font:600 30px/1 'Geist Mono';color:var(--mute)">~/skills · 5 fichiers .md</div></div>
+          <div class="c" style="top:804px;height:66px"><div id="s7zero" class="chipui" style="background:var(--ink);color:#fff">0 € · aucun compte</div></div>
+        </div></section>
+
+        <!-- CTA -->
+        <section id="s8" class="clip scene" data-start="27.48" data-duration="3.787" data-track-index="2"><div class="in">
+          <div class="c" style="top:440px;height:130px">
+            <div id="s8bar" class="card" style="display:flex;align-items:center;gap:24px;width:800px;height:124px;border-radius:999px;padding:0 22px 0 44px">
+              <div class="mono" style="font:600 46px/1 'Geist Mono';color:var(--ink)"><span id="s8typed"></span><span style="color:var(--blue)">|</span></div>
+              <div id="s8send" style="margin-left:auto;width:86px;height:86px;border-radius:50%;background:var(--blue)"></div>
+              <svg class="abs" style="right:44px;top:39px" width="44" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </div>
+          </div>
+          <div class="c" style="top:618px;height:90px"><div id="s8sub" style="height:88px;padding:0 44px;border-radius:999px;background:var(--ink);color:#fff;font:700 38px/88px 'Inter Tight'">+ Abonne-toi</div></div>
+          <div class="c" style="top:400px;height:240px"><div id="s8ok" class="ok" style="width:220px;height:220px"><svg width="96" height="96" viewBox="0 0 24 24"><path d="M6 12.5l4 4L18 8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <svg id="s8cur" class="abs" style="left:610px;top:575px" width="46" height="60" viewBox="0 0 23 30"><path d="M2 2v22l6-5.5 4 9 4-1.8-4-8.7h8.5z" fill="#111" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div class="c" style="top:700px;height:66px"><div id="s8dm" class="card chipui"><span class="riso" style="color:var(--blueD)">✦</span>DM · installation pas à pas</div></div>
+        </div></section>
+        <div id="grain"></div>
+      </div>
+
+      <!-- SOUS-TITRES : une pastille à la fois (générées par captions.py) -->
+      <!--CAPS-->
+      <div data-hf-id="hf-x6cb" id="cap0" class="cap clip" data-start="0.04" data-duration="0.51" data-track-index="9"><div data-hf-id="hf-sqmm" class="chip"><span data-hf-id="hf-fxfp" class="w">NE</span> <span data-hf-id="hf-1ktx" class="w">POSTE</span> <span data-hf-id="hf-xqg8" class="w">PLUS</span></div></div>
+      <div data-hf-id="hf-gbb9" id="cap1" class="cap clip" data-start="0.56" data-duration="0.73" data-track-index="9"><div data-hf-id="hf-gk42" class="chip"><span data-hf-id="hf-5ue3" class="w">UN</span> <span data-hf-id="hf-dued" class="w">SEUL</span> <span data-hf-id="hf-75s0" class="k">RÉEL</span></div></div>
+      <div data-hf-id="hf-zu2e" id="cap2" class="cap clip" data-start="1.3" data-duration="0.65" data-track-index="9"><div data-hf-id="hf-gyf3" class="chip"><span data-hf-id="hf-sui8" class="w">AVANT</span> <span data-hf-id="hf-i3if" class="k">D&#x27;INSTALLER</span></div></div>
+      <div data-hf-id="hf-r9h6" id="cap3" class="cap clip" data-start="1.96" data-duration="0.73" data-track-index="9"><div data-hf-id="hf-hcq4" class="chip"><span data-hf-id="hf-n419" class="w">CES</span> <span data-hf-id="hf-m00j" class="k">5</span> <span data-hf-id="hf-opsu" class="k">SKILLS</span></div></div>
+      <div data-hf-id="hf-w1am" id="cap4" class="cap clip" data-start="2.7" data-duration="0.35" data-track-index="9"><div data-hf-id="hf-hr15" class="chip"><span data-hf-id="hf-5b0u" class="k">CLAUDE</span></div></div>
+      <div data-hf-id="hf-bo23" id="cap5" class="cap clip" data-start="3.06" data-duration="0.37" data-track-index="9"><div data-hf-id="hf-i5c6" class="chip"><span data-hf-id="hf-uwg9" class="w">JE</span> <span data-hf-id="hf-qyxk" class="w">LES</span> <span data-hf-id="hf-hlbq" class="w">AI</span> <span data-hf-id="hf-4swj" class="w">MIS</span></div></div>
+      <div data-hf-id="hf-vmwb" id="cap6" class="cap clip" data-start="3.44" data-duration="0.45" data-track-index="9"><div data-hf-id="hf-ijn7" class="chip"><span data-hf-id="hf-6pm9" class="k">GRATUITEMENT</span></div></div>
+      <div data-hf-id="hf-cy9u" id="cap7" class="cap clip" data-start="3.9" data-duration="0.51" data-track-index="9"><div data-hf-id="hf-ixy8" class="chip"><span data-hf-id="hf-0gnu" class="w">SUR</span> <span data-hf-id="hf-jj2j" class="k">GITHUB</span></div></div>
+      <div data-hf-id="hf-v2zq" id="cap8" class="cap clip" data-start="4.42" data-duration="0.47" data-track-index="9"><div data-hf-id="hf-czct" class="chip"><span data-hf-id="hf-xgbt" class="w">ET</span> <span data-hf-id="hf-qr56" class="w">ILS</span> <span data-hf-id="hf-e4xx" class="w">FONT</span></div></div>
+      <div data-hf-id="hf-sn2r" id="cap9" class="cap clip" data-start="4.9" data-duration="0.53" data-track-index="9"><div data-hf-id="hf-ddnu" class="chip"><span data-hf-id="hf-wfvn" class="w">DE</span> <span data-hf-id="hf-r9jm" class="k">CLAUDE</span></div></div>
+      <div data-hf-id="hf-l7gb" id="cap10" class="cap clip" data-start="5.44" data-duration="0.75" data-track-index="9"><div data-hf-id="hf-2fuu" class="chip"><span data-hf-id="hf-dkc7" class="w">TOUTE</span> <span data-hf-id="hf-nbbh" class="w">TON</span> <span data-hf-id="hf-mq97" class="k">ÉQUIPE</span></div></div>
+      <div data-hf-id="hf-k83z" id="cap11" class="cap clip" data-start="6.2" data-duration="0.37" data-track-index="9"><div data-hf-id="hf-21jt" class="chip"><span data-hf-id="hf-3va3" class="k">VIDÉO</span></div></div>
+      <div data-hf-id="hf-cl72" id="cap12" class="cap clip" data-start="6.58" data-duration="0.41" data-track-index="9"><div data-hf-id="hf-38gw" class="chip"><span data-hf-id="hf-s4yj" class="w">LE</span> <span data-hf-id="hf-w0o8" class="k">PREMIER</span></div></div>
+      <div data-hf-id="hf-cs18" id="cap13" class="cap clip" data-start="7.0" data-duration="0.71" data-track-index="9"><div data-hf-id="hf-2u5v" class="chip"><span data-hf-id="hf-52j3" class="w">TROUVE</span> <span data-hf-id="hf-02hc" class="w">DES</span> <span data-hf-id="hf-xwzp" class="w">RÉELS</span></div></div>
+      <div data-hf-id="hf-nspj" id="cap14" class="cap clip" data-start="7.72" data-duration="0.67" data-track-index="9"><div data-hf-id="hf-0umq" class="chip"><span data-hf-id="hf-i0eh" class="w">QUI</span> <span data-hf-id="hf-df98" class="k">EXPLOSENT</span></div></div>
+      <div data-hf-id="hf-sac2" id="cap15" class="cap clip" data-start="8.4" data-duration="0.45" data-track-index="9"><div data-hf-id="hf-0gbp" class="chip"><span data-hf-id="hf-74m8" class="w">DANS</span> <span data-hf-id="hf-i6u7" class="w">TA</span> <span data-hf-id="hf-6rwx" class="k">NICHE</span></div></div>
+      <div data-hf-id="hf-c68l" id="cap16" class="cap clip" data-start="8.86" data-duration="0.49" data-track-index="9"><div data-hf-id="hf-1n8s" class="chip"><span data-hf-id="hf-0vzx" class="w">IL</span> <span data-hf-id="hf-js2b" class="w">TE</span> <span data-hf-id="hf-k5as" class="w">NOTE</span></div></div>
+      <div data-hf-id="hf-hyxa" id="cap17" class="cap clip" data-start="9.36" data-duration="0.81" data-track-index="9"><div data-hf-id="hf-18xr" class="chip"><span data-hf-id="hf-h8ch" class="w">LEURS</span> <span data-hf-id="hf-jm6d" class="k">3</span> <span data-hf-id="hf-tkgh" class="w">PREMIÈRES</span></div></div>
+      <div data-hf-id="hf-bvge" id="cap18" class="cap clip" data-start="10.18" data-duration="0.35" data-track-index="9"><div data-hf-id="hf-z9em" class="chip"><span data-hf-id="hf-fgmc" class="k">SECONDES</span></div></div>
+      <div data-hf-id="hf-sq6n" id="cap19" class="cap clip" data-start="10.54" data-duration="0.53" data-track-index="9"><div data-hf-id="hf-yv3l" class="chip"><span data-hf-id="hf-te8r" class="w">LE</span> <span data-hf-id="hf-a3ad" class="k">DEUXIÈME</span></div></div>
+      <div data-hf-id="hf-eb11" id="cap20" class="cap clip" data-start="11.08" data-duration="0.73" data-track-index="9"><div data-hf-id="hf-3tlp" class="chip"><span data-hf-id="hf-fltn" class="w">ÉCRIT</span> <span data-hf-id="hf-2xz4" class="w">TES</span> <span data-hf-id="hf-vv04" class="k">SCRIPTS</span></div></div>
+      <div data-hf-id="hf-ek3m" id="cap21" class="cap clip" data-start="11.82" data-duration="0.51" data-track-index="9"><div data-hf-id="hf-47wq" class="chip"><span data-hf-id="hf-qe03" class="w">DE</span> <span data-hf-id="hf-qjqf" class="w">LA</span> <span data-hf-id="hf-5i0o" class="k">SEMAINE</span></div></div>
+      <div data-hf-id="hf-7rwe" id="cap22" class="cap clip" data-start="12.34" data-duration="0.89" data-track-index="9"><div data-hf-id="hf-4m7r" class="chip"><span data-hf-id="hf-ahov" class="w">AVEC</span> <span data-hf-id="hf-qpuh" class="k">3</span> <span data-hf-id="hf-7r5d" class="k">ACCROCHES</span></div></div>
+      <div data-hf-id="hf-d89n" id="cap23" class="cap clip" data-start="13.24" data-duration="0.45" data-track-index="9"><div data-hf-id="hf-50is" class="chip"><span data-hf-id="hf-jswm" class="w">POUR</span> <span data-hf-id="hf-nxe0" class="w">CHACUN</span></div></div>
+      <div data-hf-id="hf-6e9c" id="cap24" class="cap clip" data-start="13.7" data-duration="0.55" data-track-index="9"><div data-hf-id="hf-5ett" class="chip"><span data-hf-id="hf-szxq" class="w">LE</span> <span data-hf-id="hf-950k" class="k">TROISIÈME</span></div></div>
+      <div data-hf-id="hf-fjhl" id="cap25" class="cap clip" data-start="14.26" data-duration="0.39" data-track-index="9"><div data-hf-id="hf-5t4u" class="chip"><span data-hf-id="hf-w5nm" class="w">ENLÈVE</span> <span data-hf-id="hf-hmh4" class="w">TOUT</span></div></div>
+      <div data-hf-id="hf-qcef" id="cap26" class="cap clip" data-start="14.66" data-duration="0.47" data-track-index="9"><div data-hf-id="hf-67fv" class="chip"><span data-hf-id="hf-a25o" class="w">CE</span> <span data-hf-id="hf-2h6l" class="w">QUI</span> <span data-hf-id="hf-mszt" class="w">SONNE</span></div></div>
+      <div data-hf-id="hf-5n6q" id="cap27" class="cap clip" data-start="15.14" data-duration="0.69" data-track-index="9"><div data-hf-id="hf-6lqw" class="chip"><span data-hf-id="hf-lsuf" class="w">COMME</span> <span data-hf-id="hf-lqnv" class="k">CHATGPT</span></div></div>
+      <div data-hf-id="hf-qpd6" id="cap28" class="cap clip" data-start="15.84" data-duration="0.61" data-track-index="9"><div data-hf-id="hf-701x" class="chip"><span data-hf-id="hf-slmp" class="w">LE</span> <span data-hf-id="hf-9j9c" class="k">QUATRIÈME</span></div></div>
+      <div data-hf-id="hf-l4m0" id="cap29" class="cap clip" data-start="16.46" data-duration="0.69" data-track-index="9"><div data-hf-id="hf-7ecy" class="chip"><span data-hf-id="hf-kswd" class="w">MONTE</span> <span data-hf-id="hf-wckf" class="w">TA</span> <span data-hf-id="hf-isez" class="k">VIDÉO</span></div></div>
+      <div data-hf-id="hf-6klf" id="cap30" class="cap clip" data-start="17.16" data-duration="0.39" data-track-index="9"><div data-hf-id="hf-31xw" class="chip"><span data-hf-id="hf-h35g" class="k">SOUS-TITRES</span></div></div>
+      <div data-hf-id="hf-qp8t" id="cap31" class="cap clip" data-start="17.56" data-duration="0.45" data-track-index="9"><div data-hf-id="hf-2nmv" class="chip"><span data-hf-id="hf-jpa7" class="w">BLANCS</span> <span data-hf-id="hf-ygdz" class="k">COUPÉS</span></div></div>
+      <div data-hf-id="hf-5rfe" id="cap32" class="cap clip" data-start="18.02" data-duration="0.21" data-track-index="9"><div data-hf-id="hf-29bu" class="chip"><span data-hf-id="hf-9rhj" class="k">ZOOM</span></div></div>
+      <div data-hf-id="hf-y0de" id="cap33" class="cap clip" data-start="18.24" data-duration="0.57" data-track-index="9"><div data-hf-id="hf-1v0t" class="chip"><span data-hf-id="hf-676l" class="w">ET</span> <span data-hf-id="hf-df5v" class="w">TU</span> <span data-hf-id="hf-lke0" class="w">AS</span> <span data-hf-id="hf-o6l7" class="w">UN</span></div></div>
+      <div data-hf-id="hf-op6n" id="cap34" class="cap clip" data-start="18.82" data-duration="0.51" data-track-index="9"><div data-hf-id="hf-4n60" class="chip"><span data-hf-id="hf-53kv" class="k">MP4</span></div></div>
+      <div data-hf-id="hf-rz6s" id="cap35" class="cap clip" data-start="19.34" data-duration="0.71" data-track-index="9"><div data-hf-id="hf-48uz" class="chip"><span data-hf-id="hf-neuw" class="w">PRÊT</span> <span data-hf-id="hf-dqzs" class="w">À</span> <span data-hf-id="hf-7nxl" class="k">POSTER</span></div></div>
+      <div data-hf-id="hf-meug" id="cap36" class="cap clip" data-start="20.06" data-duration="0.53" data-track-index="9"><div data-hf-id="hf-3ujy" class="chip"><span data-hf-id="hf-3flq" class="w">MAIS</span> <span data-hf-id="hf-s7bo" class="w">LE</span> <span data-hf-id="hf-vklt" class="k">DERNIER</span></div></div>
+      <div data-hf-id="hf-e48r" id="cap37" class="cap clip" data-start="20.6" data-duration="0.55" data-track-index="9"><div data-hf-id="hf-3g8x" class="chip"><span data-hf-id="hf-3t3m" class="w">C&#x27;EST</span> <span data-hf-id="hf-3yky" class="w">CELUI</span></div></div>
+      <div data-hf-id="hf-3x1l" id="cap38" class="cap clip" data-start="21.16" data-duration="0.63" data-track-index="9"><div data-hf-id="hf-68e4" class="chip"><span data-hf-id="hf-d8q5" class="w">QUE</span> <span data-hf-id="hf-abi5" class="w">JE</span> <span data-hf-id="hf-h2cm" class="k">PRÉFÈRE</span></div></div>
+      <div data-hf-id="hf-ibnb" id="cap39" class="cap clip" data-start="21.8" data-duration="0.43" data-track-index="9"><div data-hf-id="hf-5u33" class="chip"><span data-hf-id="hf-u1z7" class="w">TU</span> <span data-hf-id="hf-p79i" class="w">LUI</span> <span data-hf-id="hf-5mj9" class="w">DONNES</span></div></div>
+      <div data-hf-id="hf-vulh" id="cap40" class="cap clip" data-start="22.24" data-duration="0.75" data-track-index="9"><div data-hf-id="hf-2aa3" class="chip"><span data-hf-id="hf-ud4q" class="w">UNE</span> <span data-hf-id="hf-ra4f" class="w">VIDÉO</span> <span data-hf-id="hf-jjyo" class="k">LONGUE</span></div></div>
+      <div data-hf-id="hf-6y91" id="cap41" class="cap clip" data-start="23.0" data-duration="0.59" data-track-index="9"><div data-hf-id="hf-2ol4" class="chip"><span data-hf-id="hf-7e3o" class="w">ET</span> <span data-hf-id="hf-qec1" class="w">IL</span> <span data-hf-id="hf-gulq" class="w">T&#x27;EN</span> <span data-hf-id="hf-q7z8" class="w">SORT</span></div></div>
+      <div data-hf-id="hf-4lxe" id="cap42" class="cap clip" data-start="23.6" data-duration="0.75" data-track-index="9"><div data-hf-id="hf-1ho1" class="chip"><span data-hf-id="hf-wwqq" class="w">PLUSIEURS</span> <span data-hf-id="hf-by07" class="k">SHORTS</span></div></div>
+      <div data-hf-id="hf-c19w" id="cap43" class="cap clip" data-start="24.36" data-duration="0.61" data-track-index="9"><div data-hf-id="hf-1vz2" class="chip"><span data-hf-id="hf-vq4k" class="w">CE</span> <span data-hf-id="hf-71ko" class="w">SONT</span> <span data-hf-id="hf-gzb5" class="w">JUSTE</span></div></div>
+      <div data-hf-id="hf-qqxe" id="cap44" class="cap clip" data-start="24.98" data-duration="0.71" data-track-index="9"><div data-hf-id="hf-0p1z" class="chip"><span data-hf-id="hf-byp4" class="w">DES</span> <span data-hf-id="hf-05dz" class="k">FICHIERS</span> <span data-hf-id="hf-jvv6" class="k">TEXTE</span></div></div>
+      <div data-hf-id="hf-z0n4" id="cap45" class="cap clip" data-start="25.7" data-duration="0.59" data-track-index="9"><div data-hf-id="hf-13d0" class="chip"><span data-hf-id="hf-tno6" class="w">TU</span> <span data-hf-id="hf-9cdn" class="w">N&#x27;AS</span> <span data-hf-id="hf-ec7l" class="w">NI</span></div></div>
+      <div data-hf-id="hf-4xhu" id="cap46" class="cap clip" data-start="26.3" data-duration="0.48" data-track-index="9"><div data-hf-id="hf-zwfx" class="chip"><span data-hf-id="hf-trqf" class="k">ABONNEMENT</span></div></div>
+      <div data-hf-id="hf-csee" id="cap47" class="cap clip" data-start="26.79" data-duration="0.68" data-track-index="9"><div data-hf-id="hf-0aqy" class="chip"><span data-hf-id="hf-gslh" class="w">NI</span> <span data-hf-id="hf-rq3w" class="w">COMPTE</span> <span data-hf-id="hf-f9b4" class="w">À</span> <span data-hf-id="hf-qmev" class="w">CRÉER</span></div></div>
+      <div data-hf-id="hf-qb8h" id="cap48" class="cap clip" data-start="27.48" data-duration="0.65" data-track-index="9"><div data-hf-id="hf-5gqb" class="chip"><span data-hf-id="hf-vkvs" class="w">COMMENTE</span> <span data-hf-id="hf-d5s2" class="k">SKILLS</span></div></div>
+      <div data-hf-id="hf-5ud1" id="cap49" class="cap clip" data-start="28.14" data-duration="0.46" data-track-index="9"><div data-hf-id="hf-5v1c" class="chip"><span data-hf-id="hf-o1w2" class="k">ABONNE-TOI</span></div></div>
+      <div data-hf-id="hf-y8hq" id="cap50" class="cap clip" data-start="28.61" data-duration="0.45" data-track-index="9"><div data-hf-id="hf-1ima" class="chip"><span data-hf-id="hf-6zsn" class="w">ET</span> <span data-hf-id="hf-bif8" class="w">JE</span> <span data-hf-id="hf-fcur" class="w">T&#x27;ENVOIE</span></div></div>
+      <div data-hf-id="hf-wje3" id="cap51" class="cap clip" data-start="29.07" data-duration="0.62" data-track-index="9"><div data-hf-id="hf-14b9" class="chip"><span data-hf-id="hf-ycqd" class="k">L&#x27;INSTALLATION</span></div></div>
+      <div data-hf-id="hf-2nzy" id="cap52" class="cap clip" data-start="29.7" data-duration="0.84" data-track-index="9"><div data-hf-id="hf-2b8c" class="chip"><span data-hf-id="hf-gww7" class="k">ÉTAPE</span> <span data-hf-id="hf-j823" class="w">PAR</span> <span data-hf-id="hf-36av" class="k">ÉTAPE</span></div></div>
+      <div data-hf-id="hf-s2pa" id="cap53" class="cap clip" data-start="30.55" data-duration="0.39" data-track-index="9"><div data-hf-id="hf-1wxb" class="chip"><span data-hf-id="hf-1fe3" class="w">EN</span> <span data-hf-id="hf-x607" class="k">DM</span></div></div>
+      <div data-hf-id="hf-fgyx" id="cap54" class="cap clip" data-start="30.95" data-duration="0.307" data-track-index="9"><div data-hf-id="hf-33ue" class="chip"><span data-hf-id="hf-ah9l" class="k">MAINTENANT</span></div></div>
+      <!--/CAPS-->
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // courbes douces : entrées expo.out ~0,7 s, sorties courtes power2.in
+      const IN = "expo.out", D = 0.7;
+      const rise = (sel, t, extra = {}) => tl.fromTo(sel, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: D, ease: IN, ...extra }, t);
+      const pop = (sel, t, extra = {}) => tl.fromTo(sel, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: D, ease: IN, ...extra }, t);
+      const out = (sel, t, extra = {}) => tl.to(sel, { opacity: 0, duration: 0.3, ease: "power2.in", ...extra }, t);
+      const draw = (sel, t, d = 0.6, prop = "scaleX") => tl.fromTo(sel, { [prop]: 0 }, { [prop]: 1, duration: d, ease: "expo.inOut" }, t);
+
+      // fondus de section : la scène s'efface, la suivante entre sur le papier
+      const SC = [["#s0", 0, 3.06], ["#s1", 3.06, 6.58], ["#s2", 6.58, 10.54], ["#s3", 10.54, 13.70], ["#s4", 13.70, 15.84], ["#s5", 15.84, 20.06], ["#s6", 20.06, 24.36], ["#s7", 24.36, 27.48], ["#s8", 27.48, 31.267]];
+      SC.forEach(([s, a, b], i) => {
+        if (i > 0) tl.fromTo(s + " > .in", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, a);
+        if (i < SC.length - 1) tl.to(s + " > .in", { opacity: 0, duration: 0.28, ease: "power2.in" }, b - 0.28);
+      });
+      // en-têtes d'étape
+      ["#s2", "#s3", "#s4", "#s5", "#s6"].forEach((s, i) => rise(s + " .head .pill", [6.58, 10.54, 13.70, 15.84, 20.06][i] + 0.05));
+
+      // s0 — bouton « Publier » : le curseur arrive, clic, tampon « pas encore », puis le 5
+      pop("#s0ig", 0.05, { y: 20 });
+      rise("#s0btn", 0.16);
+      tl.fromTo("#s0cur", { opacity: 0, x: 120, y: 90 }, { opacity: 1, x: 0, y: 0, duration: 0.6, ease: "expo.out" }, 0.1);
+      tl.to("#s0cur", { x: -90, y: -88, duration: 0.4, ease: "power3.inOut" }, 0.72);
+      tl.to("#s0btn", { scale: 0.95, duration: 0.08, ease: "power2.out" }, 1.1).to("#s0btn", { scale: 1, duration: 0.3, ease: IN }, 1.18);
+      tl.fromTo("#s0stamp", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.45, ease: IN }, 1.3);
+      out(["#s0ig", "#s0btn", "#s0stamp", "#s0cur"], 1.66);
+      pop("#s0five", 1.96, { duration: 0.8 });
+      rise("#s0pill", 2.70);
+
+      // s1 — dépôt GitHub + « gratuit », puis Venn Claude ∩ équipe vidéo
+      rise("#s1repo", 3.12);
+      pop("#s1free", 3.44, { rotation: 5 });
+      out("#s1repo", 4.12);
+      tl.fromTo("#s1L", { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 0.8, ease: IN }, 4.42);
+      tl.fromTo("#s1R", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.8, ease: IN }, 4.52);
+      rise("#s1lt", 4.90);
+      rise("#s1rt", 5.44);
+      tl.fromTo("#s1star", { opacity: 0, scale: 0.4, rotation: -40 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.8, ease: IN, transformOrigin: "50% 50%" }, 5.62);
+
+      // s2 — trois réels, celui du milieu explose, puis niche → hook
+      rise(".s2r", 7.0, { stagger: 0.09 });
+      // vues qui grimpent depuis 0 (espaces fines à la française), barres de lecture des réels
+      document.querySelectorAll("#s2 .vc").forEach((el, i) => {
+        const to = +el.dataset.to, o = { v: 0 };
+        tl.fromTo(o, { v: 0 }, { v: to, duration: i === 1 ? 2.1 : 1.5, ease: "power2.out", immediateRender: false,
+          onUpdate: () => { el.textContent = String(Math.round(o.v / 100) * 100).replace(/\B(?=(\d{3})+$)/g, " "); } }, 7.25);
+      });
+      tl.fromTo("#s2 .s2pb", { scaleX: 0 }, { scaleX: 1, duration: 3.2, ease: "none", immediateRender: false }, 7.05);
+      tl.fromTo("#s2 .s2img", { scale: 1 }, { scale: 1.08, duration: 3.4, ease: "none", immediateRender: false }, 7.0);
+      // le réel du milieu se détache : levée, anneau bleu, étiquette, les autres s'effacent un peu
+      tl.to("#s2mid", { y: -18, scale: 1.07, duration: 0.7, ease: IN }, 7.92);
+      tl.to("#s2 .s2r:not(#s2mid)", { opacity: 0.5, scale: 0.96, duration: 0.6, ease: IN }, 7.92);
+      tl.fromTo("#s2ring", { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.6, ease: IN }, 7.96);
+      tl.fromTo("#s2tag", { opacity: 0, scale: 0.6, rotation: -8 }, { opacity: 1, scale: 1, rotation: 6, duration: 0.6, ease: IN }, 8.06);
+      rise("#s2niche", 8.40);
+      out("#s2niche", 9.10, { duration: 0.24 });
+      rise("#s2hook", 9.36);
+
+      // s3 — un script qui s'écrit, trois accroches au-dessus
+      rise("#s3doc", 11.08);
+      // chaque ligne du script se tape, curseur bleu sur la ligne en cours
+      document.querySelectorAll("#s3 .s3row").forEach((row, i) => {
+        const t = row.querySelector(".s3t"), k = row.querySelector(".s3k"), txt = t.dataset.text, o = { n: 0 }, a = 11.3 + i * 0.5;
+        tl.fromTo(o, { n: 0 }, { n: txt.length, duration: 0.46, ease: "none", immediateRender: false,
+          onUpdate: () => { t.textContent = txt.slice(0, Math.round(o.n)); } }, a);
+        tl.fromTo(k, { opacity: 0 }, { opacity: 1, duration: 0.01 }, a).to(k, { opacity: 0, duration: 0.01 }, a + 0.5);
+      });
+      rise(".s3c", 12.34, { stagger: 0.26 });
+
+      // s4 — phrase IA barrée, puis coche
+      rise("#s4q", 13.85);
+      tl.fromTo("#s4hl", { backgroundSize: "0% 0.78em" }, { backgroundSize: "100% 0.78em", duration: 0.6, ease: "power2.inOut" }, 14.30);
+      tl.to("#s4hl", { color: "#0A4C93", duration: 0.3 }, 14.7);
+      out("#s4q", 15.05);
+      tl.fromTo("#s4ok", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: D, ease: IN }, 15.16);
+
+      // s5 — rush → skill → MP4
+      rise("#s5a", 16.10);
+      draw("#s5l1", 16.46, 0.5);
+      pop("#s5b", 16.46);
+      draw("#s5l2", 16.9, 0.5);
+      rise(["#s5c", "#s5t3"], 18.82);
+      rise(".s5t", 16.6, { stagger: 0.1 });
+      [17.16, 17.56, 18.02].forEach(t => tl.fromTo("#s5b", { scale: 1.07 }, { scale: 1, duration: 0.4, ease: IN, immediateRender: false }, t));
+      tl.fromTo("#s5ok", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.6, ease: IN }, 19.34);
+
+      // s6 — mon préféré : une vidéo longue devient trois shorts
+      rise("#s6fav", 21.16);
+      pop("#s6long", 21.80);
+      tl.fromTo("#s6pb", { scaleX: 0 }, { scaleX: 1, duration: 1.5, ease: "power1.inOut" }, 21.9);
+      tl.fromTo("#s6img", { scale: 1 }, { scale: 1.06, duration: 1.6, ease: "none" }, 21.8);
+      out("#s6long", 23.20, { scale: 0.94 });
+      tl.fromTo(".s6s", { opacity: 0, y: 40, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: D, ease: IN, stagger: 0.12 }, 23.45);
+
+      // s7 — dossier de fichiers texte, 0 €
+      rise(["#s7back", "#s7tab"], 24.42);
+      rise("#s7front", 24.50);
+      tl.fromTo(".s7d", { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: 0.8, ease: IN, stagger: 0.08 }, 24.98);
+      rise("#s7path", 25.2);
+      out("#s7path", 26.0, { duration: 0.24 });
+      pop("#s7zero", 26.30);
+
+      // s8 — commente SKILLS, abonne-toi, coche + DM
+      rise("#s8bar", 27.50);
+      const typed = document.getElementById("s8typed"), word = "SKILLS", ty = { n: 0 };
+      tl.fromTo(ty, { n: 0 }, { n: word.length, duration: 0.5, ease: "none", onUpdate: () => { typed.textContent = word.slice(0, Math.round(ty.n)); } }, 27.62);
+      tl.fromTo("#s8send", { scale: 1 }, { scale: 0.9, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, 28.0);
+      rise("#s8sub", 28.14, { duration: 0.24 });
+      out(["#s8bar", "#s8sub"], 28.4);
+      tl.fromTo("#s8ok", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: D, ease: IN }, 28.61);
+      tl.fromTo("#s8cur", { opacity: 0, x: 120, y: 90 }, { opacity: 1, x: 0, y: 0, duration: 0.7, ease: IN }, 28.7);
+      rise("#s8dm", 29.07);
+
+      // pastilles : petite entrée, remplacement sec (jamais deux à l'écran)
+      document.querySelectorAll(".cap").forEach(c => {
+        tl.fromTo(c.querySelector(".chip"), { scale: 0.9, opacity: 0.6 }, { scale: 1, opacity: 1, duration: 0.1, ease: "power2.out" }, parseFloat(c.dataset.start));
+      });
+
+      // visage : passage du cadrage inset au cadrage plein écran pendant l'agrandissement de la source
+      // la fenêtre source grandit entre 25,8 et 26,3 s (micro, interface, sous-titre incrusté) : whip flou pour masquer le passage
+      tl.fromTo("#faceFx", { filter: "blur(0px)", scale: 1 }, { filter: "blur(26px)", scale: 1.08, duration: 0.1, ease: "power2.in" }, 25.72);
+      tl.fromTo("#fwB", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power1.inOut" }, 26.02);
+      tl.fromTo("#faceFx", { filter: "blur(26px)", scale: 1.08 }, { filter: "blur(0px)", scale: 1, duration: 0.16, ease: "power2.out", immediateRender: false }, 26.27);
+
+      window.__timelines["main"] = tl;
+    </script>
+  <script>(()=>{const rows=[{"id":"step1","text":"01video-viral"},{"id":"s2niche","text":"# ta niche"},{"id":"s2hook","text":"●hook 0–3 s"},{"id":"step2","text":"02video-script"},{"id":"chip3","text":"✦accroche 1"},{"id":"chip4","text":"✦accroche 2"},{"id":"chip5","text":"✦accroche 3"},{"id":"step3","text":"03humanize"},{"id":"step4","text":"04video-edit"},{"id":"step5","text":"05long-to-short"},{"id":"s7zero","text":"0 € · aucun compte"},{"id":"s8dm","text":"✦DM · installation pas à pas"},{"id":"cap0","text":"NE POSTE PLUS"},{"id":"cap1","text":"UN SEUL RÉEL"},{"id":"cap2","text":"AVANT D'INSTALLER"},{"id":"cap3","text":"CES 5 SKILLS"},{"id":"cap4","text":"CLAUDE"},{"id":"cap5","text":"JE LES AI MIS"},{"id":"cap6","text":"GRATUITEMENT"},{"id":"cap7","text":"SUR GITHUB"},{"id":"cap8","text":"ET ILS FONT"},{"id":"cap9","text":"DE CLAUDE"},{"id":"cap10","text":"TOUTE TON ÉQUIPE"},{"id":"cap11","text":"VIDÉO"},{"id":"cap12","text":"LE PREMIER"},{"id":"cap13","text":"TROUVE DES RÉELS"},{"id":"cap14","text":"QUI EXPLOSENT"},{"id":"cap15","text":"DANS TA NICHE"},{"id":"cap16","text":"IL TE NOTE"},{"id":"cap17","text":"LEURS 3 PREMIÈRES"},{"id":"cap18","text":"SECONDES"},{"id":"cap19","text":"LE DEUXIÈME"},{"id":"cap20","text":"ÉCRIT TES SCRIPTS"},{"id":"cap21","text":"DE LA SEMAINE"},{"id":"cap22","text":"AVEC 3 ACCROCHES"},{"id":"cap23","text":"POUR CHACUN"},{"id":"cap24","text":"LE TROISIÈME"},{"id":"cap25","text":"ENLÈVE TOUT"},{"id":"cap26","text":"CE QUI SONNE"},{"id":"cap27","text":"COMME CHATGPT"},{"id":"cap28","text":"LE QUATRIÈME"},{"id":"cap29","text":"MONTE TA VIDÉO"},{"id":"cap30","text":"SOUS-TITRES"},{"id":"cap31","text":"BLANCS COUPÉS"},{"id":"cap32","text":"ZOOM"},{"id":"cap33","text":"ET TU AS UN"},{"id":"cap34","text":"MP4"},{"id":"cap35","text":"PRÊT À POSTER"},{"id":"cap36","text":"MAIS LE DERNIER"},{"id":"cap37","text":"C'EST CELUI"},{"id":"cap38","text":"QUE JE PRÉFÈRE"},{"id":"cap39","text":"TU LUI DONNES"},{"id":"cap40","text":"UNE VIDÉO LONGUE"},{"id":"cap41","text":"ET IL T'EN SORT"},{"id":"cap42","text":"PLUSIEURS SHORTS"},{"id":"cap43","text":"CE SONT JUSTE"},{"id":"cap44","text":"DES FICHIERS TEXTE"},{"id":"cap45","text":"TU N'AS NI"},{"id":"cap46","text":"ABONNEMENT"},{"id":"cap47","text":"NI COMPTE À CRÉER"},{"id":"cap48","text":"COMMENTE SKILLS"},{"id":"cap49","text":"ABONNE-TOI"},{"id":"cap50","text":"ET JE T'ENVOIE"},{"id":"cap51","text":"L'INSTALLATION"},{"id":"cap52","text":"ÉTAPE PAR ÉTAPE"},{"id":"cap53","text":"EN DM"},{"id":"cap54","text":"MAINTENANT"}],done=new WeakSet();function apply(){for(const row of rows){const el=document.getElementById(row.id);if(!el||done.has(el))continue;done.add(el);const words=el.querySelectorAll('.kw');if(words.length&&[...words].map(w=>w.textContent.trim()).join(' ')===row.text)continue;const w=document.createTreeWalker(el,4);let n,i=0;while(n=w.nextNode())if(n.textContent.trim())n.textContent=i++===0?row.text:'';}}new MutationObserver(apply).observe(document.documentElement,{subtree:true,childList:true});apply();})();</script></body>
+</html>

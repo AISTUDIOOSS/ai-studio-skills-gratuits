@@ -1,0 +1,7 @@
+# Mac Apple Silicon (mlx). Python 3.9 à 3.12.
+numpy
+scipy
+mlx-whisper
+torch==2.8.0
+torchaudio==2.8.0
+num2words

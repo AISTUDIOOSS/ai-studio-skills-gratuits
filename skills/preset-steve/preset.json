@@ -1,0 +1,92 @@
+{
+  "id": "b309b30d-b39e-405a-aab7-49e57a9498b7",
+  "name": "Steve classique",
+  "version": 4,
+  "createdAt": "2026-10-15T16:03:37.479Z",
+  "status": "saved",
+  "validation": "not-tested-on-new-video",
+  "source": {
+    "title": "C0208 · Steve · V3 — dosage allégé",
+    "version": 3
+  },
+  "files": [
+    {
+      "file": "assets/caption-renderer.js",
+      "sha256": "8977d74dc4d0a40a953f107567583b83ce10fbb677e6edbd5ce303a9a691aeca"
+    },
+    {
+      "file": "assets/gsap.min.js",
+      "sha256": "19e3ad578c9c583ddf9bdca2ad87bb55c3d70b331058e28abacab898f799b2ee"
+    },
+    {
+      "file": "assets/heavy.otf",
+      "sha256": "a76264a76798e56f1076ea681d9dc5ae2cc8045daf39742064fd4b6de4bae405"
+    },
+    {
+      "file": "assets/light-oblique.ttf",
+      "sha256": "d9acc392b609e889a782a55d80172bc33163a438f52bea1f9bf73a67dcb81e78"
+    },
+    {
+      "file": "assets/oblique.otf",
+      "sha256": "9f87ce4673b849b3da5a3bc26300513d2f07ed2cc796b2cd2b17d03532e9752f"
+    },
+    {
+      "file": "captions.json",
+      "sha256": "034944b97c28043058395355cb4e3fa61a81c33ef7dddd6c1171e8303a6c587b"
+    },
+    {
+      "file": "hyperframes.json",
+      "sha256": "bbed8a414752340c310858e58b5f285430923ec628a82c1fc8ac942666be0750"
+    },
+    {
+      "file": "index.html",
+      "sha256": "1cd5424a849f6426f70ba1ca33822f7b1a7d2471ce8d74b39deda0aefeedbca7"
+    },
+    {
+      "file": "package.json",
+      "sha256": "e15e8d84ee1ac7dbd56111dafbc9f7afc2f3989e69d0c3d6535bd2c7019f5200"
+    },
+    {
+      "file": "retimed-plan.json",
+      "sha256": "5c6e2910841c2b3fac13abf6e7810e371dca912d7858d1a811b00004fa59e013"
+    }
+  ],
+  "media": [
+    {
+      "file": "assets/base.mp4",
+      "bytes": 61503280
+    }
+  ],
+  "previousVersion": 3,
+  "rules": [
+    {
+      "text": "Hook : la phrase d'accroche (environ les 3 premières secondes) contient toujours 1 à 2 surlignages rouges, posés sur les mots les plus importants — jamais aucun, jamais plus de 2.",
+      "addedIn": 2,
+      "addedAt": "2026-10-15T16:00:58.167Z"
+    },
+    {
+      "text": "Jamais de chevauchement de sous-titres : un seul groupe à l'écran à la fois, et dans un escalier aucune ligne ne touche une autre, même pendant les montées — au repos, au moins 18 px d'encre entre deux lignes et 24 px au contact d'une capsule rouge (habiller.py --ecart 18).",
+      "addedIn": 2,
+      "addedAt": "2026-10-15T16:00:58.167Z",
+      "previousTexts": [
+        "Jamais de chevauchement de sous-titres : un seul groupe à l'écran à la fois, et dans un escalier aucune ligne (texte ou capsule rouge) ne touche une autre ligne.",
+        "Jamais de chevauchement de sous-titres : un seul groupe à l'écran à la fois, et dans un escalier aucune ligne ne touche une autre — au moins 18 px d'encre entre deux lignes, 24 px au contact d'une capsule rouge (habiller.py --ecart 18), y compris pendant les montées."
+      ],
+      "revisedIn": 4
+    },
+    {
+      "text": "Gros mots blancs (oblique 110 px) plus présents : environ un toutes les 5 à 7 secondes, sur des mots forts ou émotionnels, en alternance avec les surlignages rouges. Chacun reste lisible au moins 0,5 s ; si le mot est trop bref, le mettre en escalier avec les mots qui suivent.",
+      "addedIn": 2,
+      "addedAt": "2026-10-15T16:00:58.167Z"
+    },
+    {
+      "text": "Pas plus de 4 mots par ligne de sous-titre.",
+      "addedIn": 2,
+      "addedAt": "2026-10-15T16:00:58.167Z"
+    }
+  ],
+  "distribution": {
+    "mediaIncluded": false,
+    "note": "Fournir ses propres rushes et remplacer les médias de référence."
+  }
+}

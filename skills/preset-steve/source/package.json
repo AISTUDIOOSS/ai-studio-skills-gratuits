@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "preview": "npx --yes hyperframes@0.8.152 preview",
+    "render": "npx --yes hyperframes@0.8.152 render"
+  }
+}

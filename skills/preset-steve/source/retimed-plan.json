@@ -1,0 +1,2812 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "totalFrames": 2288,
+  "groups": [
+    {
+      "id": "v2g000-seg0-calm",
+      "template": "staircase-white",
+      "intent": "hook",
+      "startFrame": 0,
+      "endFrame": 43,
+      "parts": [
+        {
+          "text": "si j'étais",
+          "atFrame": 0,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "une personne",
+          "atFrame": 13,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "qui aimerait",
+          "atFrame": 29,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g001-seg0-calm",
+      "template": "staircase-highlight",
+      "intent": "hook",
+      "startFrame": 43,
+      "endFrame": 90,
+      "parts": [
+        {
+          "text": "lancer",
+          "atFrame": 43,
+          "variant": "highlight",
+          "animation": "cut"
+        },
+        {
+          "text": "son accompagnement",
+          "atFrame": 55,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g001-seg0-single2",
+      "template": "small-white",
+      "startFrame": 90,
+      "endFrame": 106,
+      "parts": [
+        {
+          "text": "pour aider",
+          "atFrame": 90,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g001-seg0-single3",
+      "template": "small-white",
+      "startFrame": 106,
+      "endFrame": 128,
+      "parts": [
+        {
+          "text": "d'autres personnes",
+          "atFrame": 106,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g002-seg1-single0",
+      "template": "small-white",
+      "startFrame": 128,
+      "endFrame": 134,
+      "parts": [
+        {
+          "text": "ce que",
+          "atFrame": 128,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g002-seg1-single1",
+      "template": "small-white",
+      "startFrame": 134,
+      "endFrame": 137,
+      "parts": [
+        {
+          "text": "je",
+          "atFrame": 134,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g002-seg1-single2",
+      "template": "small-white",
+      "startFrame": 137,
+      "endFrame": 147,
+      "parts": [
+        {
+          "text": "rêverais",
+          "atFrame": 137,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g003-seg1-single0",
+      "template": "small-white",
+      "startFrame": 147,
+      "endFrame": 159,
+      "parts": [
+        {
+          "text": "c'est d'avoir",
+          "atFrame": 147,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g003-seg1-single1",
+      "template": "small-white",
+      "startFrame": 159,
+      "endFrame": 168,
+      "parts": [
+        {
+          "text": "un",
+          "atFrame": 159,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g003-seg1-single2",
+      "template": "highlight-only",
+      "startFrame": 168,
+      "endFrame": 183,
+      "parts": [
+        {
+          "text": "partenaire",
+          "atFrame": 168,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g004-seg1-single0",
+      "template": "small-white",
+      "startFrame": 183,
+      "endFrame": 198,
+      "parts": [
+        {
+          "text": "qui m'épaule",
+          "atFrame": 183,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g004-seg1-single1",
+      "template": "small-white",
+      "startFrame": 198,
+      "endFrame": 205,
+      "parts": [
+        {
+          "text": "dès le",
+          "atFrame": 198,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g004-seg1-single2",
+      "template": "small-white",
+      "startFrame": 205,
+      "endFrame": 216,
+      "parts": [
+        {
+          "text": "départ",
+          "atFrame": 205,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g005-seg2-single0",
+      "template": "small-white",
+      "startFrame": 216,
+      "endFrame": 225,
+      "parts": [
+        {
+          "text": "en se",
+          "atFrame": 216,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g005-seg2-single1",
+      "template": "small-white",
+      "startFrame": 225,
+      "endFrame": 240,
+      "parts": [
+        {
+          "text": "rémunérant",
+          "atFrame": 225,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g005-seg2-single2",
+      "template": "small-white",
+      "startFrame": 240,
+      "endFrame": 258,
+      "parts": [
+        {
+          "text": "avec moi",
+          "atFrame": 240,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g006-seg2-single0",
+      "template": "small-white",
+      "startFrame": 258,
+      "endFrame": 267,
+      "parts": [
+        {
+          "text": "main dans",
+          "atFrame": 258,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g006-seg2-single1",
+      "template": "small-white",
+      "startFrame": 267,
+      "endFrame": 276,
+      "parts": [
+        {
+          "text": "la main",
+          "atFrame": 267,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g006-seg2-single2",
+      "template": "small-white",
+      "startFrame": 276,
+      "endFrame": 286,
+      "parts": [
+        {
+          "text": "au",
+          "atFrame": 276,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g006-seg2-single3",
+      "template": "highlight-only",
+      "startFrame": 286,
+      "endFrame": 308,
+      "parts": [
+        {
+          "text": "pourcentage",
+          "atFrame": 286,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g007-seg3-single0",
+      "template": "small-white",
+      "startFrame": 308,
+      "endFrame": 315,
+      "parts": [
+        {
+          "text": "pas une",
+          "atFrame": 308,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g007-seg3-single1",
+      "template": "small-white",
+      "startFrame": 315,
+      "endFrame": 323,
+      "parts": [
+        {
+          "text": "personne",
+          "atFrame": 315,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g007-seg3-single2",
+      "template": "small-white",
+      "startFrame": 323,
+      "endFrame": 332,
+      "parts": [
+        {
+          "text": "qui va",
+          "atFrame": 323,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g007-seg3-single3",
+      "template": "small-white",
+      "startFrame": 332,
+      "endFrame": 342,
+      "parts": [
+        {
+          "text": "demander",
+          "atFrame": 332,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g008-seg3-single0",
+      "template": "highlight-only",
+      "startFrame": 342,
+      "endFrame": 353,
+      "parts": [
+        {
+          "text": "5 000 €",
+          "atFrame": 342,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g009-seg3-single0",
+      "template": "highlight-only",
+      "startFrame": 353,
+      "endFrame": 366,
+      "parts": [
+        {
+          "text": "10 000 €",
+          "atFrame": 353,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g010-seg3-single0",
+      "template": "small-white",
+      "startFrame": 366,
+      "endFrame": 368,
+      "parts": [
+        {
+          "text": "ou",
+          "atFrame": 366,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g011-seg3-single0",
+      "template": "highlight-only",
+      "startFrame": 368,
+      "endFrame": 385,
+      "parts": [
+        {
+          "text": "15 000 €",
+          "atFrame": 368,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g012-seg3-single0",
+      "template": "small-white",
+      "startFrame": 385,
+      "endFrame": 397,
+      "parts": [
+        {
+          "text": "pour",
+          "atFrame": 385,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g012-seg3-single1",
+      "template": "small-white",
+      "startFrame": 397,
+      "endFrame": 413,
+      "parts": [
+        {
+          "text": "soi-disant",
+          "atFrame": 397,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g012-seg3-single2",
+      "template": "small-white",
+      "startFrame": 413,
+      "endFrame": 446,
+      "parts": [
+        {
+          "text": "un accompagnement",
+          "atFrame": 413,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g013-seg4-single0",
+      "template": "small-white",
+      "startFrame": 446,
+      "endFrame": 461,
+      "parts": [
+        {
+          "text": "évidemment je",
+          "atFrame": 446,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g013-seg4-single1",
+      "template": "small-white",
+      "startFrame": 461,
+      "endFrame": 462,
+      "parts": [
+        {
+          "text": "dis",
+          "atFrame": 461,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g013-seg4-single2",
+      "template": "small-white",
+      "startFrame": 462,
+      "endFrame": 473,
+      "parts": [
+        {
+          "text": "soi-disant",
+          "atFrame": 462,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g014-seg4-single0",
+      "template": "small-white",
+      "startFrame": 473,
+      "endFrame": 482,
+      "parts": [
+        {
+          "text": "parce qu'on",
+          "atFrame": 473,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g014-seg4-single1",
+      "template": "small-white",
+      "startFrame": 482,
+      "endFrame": 486,
+      "parts": [
+        {
+          "text": "sait",
+          "atFrame": 482,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g014-seg4-single2",
+      "template": "small-white",
+      "startFrame": 486,
+      "endFrame": 495,
+      "parts": [
+        {
+          "text": "très bien",
+          "atFrame": 486,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g015-seg4-single0",
+      "template": "small-white",
+      "startFrame": 495,
+      "endFrame": 504,
+      "parts": [
+        {
+          "text": "que toutes",
+          "atFrame": 495,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g015-seg4-single1",
+      "template": "small-white",
+      "startFrame": 504,
+      "endFrame": 507,
+      "parts": [
+        {
+          "text": "les",
+          "atFrame": 504,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g015-seg4-single2",
+      "template": "small-white",
+      "startFrame": 507,
+      "endFrame": 516,
+      "parts": [
+        {
+          "text": "agences",
+          "atFrame": 507,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g016-seg4-single0",
+      "template": "small-white",
+      "startFrame": 516,
+      "endFrame": 519,
+      "parts": [
+        {
+          "text": "vous",
+          "atFrame": 516,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g016-seg4-single1",
+      "template": "small-white",
+      "startFrame": 519,
+      "endFrame": 531,
+      "parts": [
+        {
+          "text": "facturent",
+          "atFrame": 519,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g016-seg4-single2",
+      "template": "small-white",
+      "startFrame": 531,
+      "endFrame": 552,
+      "parts": [
+        {
+          "text": "et derrière",
+          "atFrame": 531,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g017-seg4-single0",
+      "template": "small-white",
+      "startFrame": 552,
+      "endFrame": 564,
+      "parts": [
+        {
+          "text": "il n'y",
+          "atFrame": 552,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g017-seg4-single1",
+      "template": "small-white",
+      "startFrame": 564,
+      "endFrame": 565,
+      "parts": [
+        {
+          "text": "a",
+          "atFrame": 564,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g017-seg4-single2",
+      "template": "small-white",
+      "startFrame": 565,
+      "endFrame": 571,
+      "parts": [
+        {
+          "text": "rien",
+          "atFrame": 565,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g018-seg4-single0",
+      "template": "small-white",
+      "startFrame": 571,
+      "endFrame": 585,
+      "parts": [
+        {
+          "text": "les intérêts",
+          "atFrame": 571,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g018-seg4-single1",
+      "template": "small-white",
+      "startFrame": 585,
+      "endFrame": 591,
+      "parts": [
+        {
+          "text": "ne sont",
+          "atFrame": 585,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g018-seg4-single2",
+      "template": "small-white",
+      "startFrame": 591,
+      "endFrame": 603,
+      "parts": [
+        {
+          "text": "pas alignés",
+          "atFrame": 591,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g019-seg4-single0",
+      "template": "small-white",
+      "startFrame": 603,
+      "endFrame": 613,
+      "parts": [
+        {
+          "text": "ils prennent",
+          "atFrame": 603,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g019-seg4-single1",
+      "template": "small-white",
+      "startFrame": 613,
+      "endFrame": 627,
+      "parts": [
+        {
+          "text": "votre argent",
+          "atFrame": 613,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g020-seg4-single0",
+      "template": "small-white",
+      "startFrame": 627,
+      "endFrame": 634,
+      "parts": [
+        {
+          "text": "ils n'ont",
+          "atFrame": 627,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g020-seg4-single1",
+      "template": "small-white",
+      "startFrame": 634,
+      "endFrame": 647,
+      "parts": [
+        {
+          "text": "plus aucun",
+          "atFrame": 634,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g020-seg4-single2",
+      "template": "small-white",
+      "startFrame": 647,
+      "endFrame": 657,
+      "parts": [
+        {
+          "text": "intérêt",
+          "atFrame": 647,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g021-seg4-single0",
+      "template": "small-white",
+      "startFrame": 657,
+      "endFrame": 662,
+      "parts": [
+        {
+          "text": "à vous",
+          "atFrame": 657,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g021-seg4-single1",
+      "template": "small-white",
+      "startFrame": 662,
+      "endFrame": 674,
+      "parts": [
+        {
+          "text": "faire avoir",
+          "atFrame": 662,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g021-seg4-single2",
+      "template": "small-white",
+      "startFrame": 674,
+      "endFrame": 677,
+      "parts": [
+        {
+          "text": "des",
+          "atFrame": 674,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g021-seg4-single3",
+      "template": "highlight-only",
+      "startFrame": 677,
+      "endFrame": 689,
+      "parts": [
+        {
+          "text": "résultats",
+          "atFrame": 677,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g022-seg5-single0",
+      "template": "small-white",
+      "startFrame": 689,
+      "endFrame": 696,
+      "parts": [
+        {
+          "text": "eh bien",
+          "atFrame": 689,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g022-seg5-single1",
+      "template": "small-white",
+      "startFrame": 696,
+      "endFrame": 708,
+      "parts": [
+        {
+          "text": "arrêtez",
+          "atFrame": 696,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g022-seg5-single2",
+      "template": "small-white",
+      "startFrame": 708,
+      "endFrame": 713,
+      "parts": [
+        {
+          "text": "de rêver",
+          "atFrame": 708,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g023-seg5-single0",
+      "template": "small-white",
+      "startFrame": 713,
+      "endFrame": 723,
+      "parts": [
+        {
+          "text": "parce que",
+          "atFrame": 713,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g023-seg5-single1",
+      "template": "small-white",
+      "startFrame": 723,
+      "endFrame": 743,
+      "parts": [
+        {
+          "text": "ce fonctionnement",
+          "atFrame": 723,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g023-seg5-single2",
+      "template": "small-white",
+      "startFrame": 743,
+      "endFrame": 756,
+      "parts": [
+        {
+          "text": "ce système",
+          "atFrame": 743,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g023-seg5-single3",
+      "template": "small-white",
+      "startFrame": 756,
+      "endFrame": 776,
+      "parts": [
+        {
+          "text": "existe",
+          "atFrame": 756,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g024-seg6-single0",
+      "template": "small-white",
+      "startFrame": 776,
+      "endFrame": 786,
+      "parts": [
+        {
+          "text": "j'ai créé",
+          "atFrame": 776,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g024-seg6-single1",
+      "template": "highlight-only",
+      "startFrame": 786,
+      "endFrame": 802,
+      "parts": [
+        {
+          "text": "UpTrainer",
+          "atFrame": 786,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g025-seg7-single0",
+      "template": "small-white",
+      "startFrame": 802,
+      "endFrame": 808,
+      "parts": [
+        {
+          "text": "on est",
+          "atFrame": 802,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g025-seg7-single1",
+      "template": "small-white",
+      "startFrame": 808,
+      "endFrame": 816,
+      "parts": [
+        {
+          "text": "les seuls",
+          "atFrame": 808,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g025-seg7-single2",
+      "template": "small-white",
+      "startFrame": 816,
+      "endFrame": 826,
+      "parts": [
+        {
+          "text": "aujourd'hui",
+          "atFrame": 816,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g026-seg7-single0",
+      "template": "small-white",
+      "startFrame": 826,
+      "endFrame": 836,
+      "parts": [
+        {
+          "text": "sur le",
+          "atFrame": 826,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g026-seg7-single1",
+      "template": "small-white",
+      "startFrame": 836,
+      "endFrame": 844,
+      "parts": [
+        {
+          "text": "marché",
+          "atFrame": 836,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g026-seg7-single2",
+      "template": "small-white",
+      "startFrame": 844,
+      "endFrame": 873,
+      "parts": [
+        {
+          "text": "à accompagner",
+          "atFrame": 844,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g027-seg7-single0",
+      "template": "small-white",
+      "startFrame": 873,
+      "endFrame": 894,
+      "parts": [
+        {
+          "text": "les personnes",
+          "atFrame": 873,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g027-seg7-single1",
+      "template": "small-white",
+      "startFrame": 894,
+      "endFrame": 902,
+      "parts": [
+        {
+          "text": "qui veulent",
+          "atFrame": 894,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g027-seg7-single2",
+      "template": "small-white",
+      "startFrame": 902,
+      "endFrame": 918,
+      "parts": [
+        {
+          "text": "se lancer",
+          "atFrame": 902,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g028-seg8-single0",
+      "template": "small-white",
+      "startFrame": 918,
+      "endFrame": 926,
+      "parts": [
+        {
+          "text": "dans le",
+          "atFrame": 918,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g028-seg8-single1",
+      "template": "small-white",
+      "startFrame": 926,
+      "endFrame": 936,
+      "parts": [
+        {
+          "text": "coaching",
+          "atFrame": 926,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g028-seg8-single2",
+      "template": "small-white",
+      "startFrame": 936,
+      "endFrame": 947,
+      "parts": [
+        {
+          "text": "dans la",
+          "atFrame": 936,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g028-seg8-single3",
+      "template": "small-white",
+      "startFrame": 947,
+      "endFrame": 963,
+      "parts": [
+        {
+          "text": "thérapie",
+          "atFrame": 947,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g029-seg9-single0",
+      "template": "small-white",
+      "startFrame": 963,
+      "endFrame": 986,
+      "parts": [
+        {
+          "text": "dans l'accompagnement",
+          "atFrame": 963,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g029-seg9-single1",
+      "template": "small-white",
+      "startFrame": 986,
+      "endFrame": 1000,
+      "parts": [
+        {
+          "text": "dans la",
+          "atFrame": 986,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g029-seg9-single2",
+      "template": "small-white",
+      "startFrame": 1000,
+      "endFrame": 1016,
+      "parts": [
+        {
+          "text": "formation",
+          "atFrame": 1000,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g030-seg10-single0",
+      "template": "small-white",
+      "startFrame": 1016,
+      "endFrame": 1022,
+      "parts": [
+        {
+          "text": "et tout",
+          "atFrame": 1016,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g030-seg10-single1",
+      "template": "small-white",
+      "startFrame": 1022,
+      "endFrame": 1027,
+      "parts": [
+        {
+          "text": "ça",
+          "atFrame": 1022,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g030-seg10-single2",
+      "template": "small-white",
+      "startFrame": 1027,
+      "endFrame": 1032,
+      "parts": [
+        {
+          "text": "en se",
+          "atFrame": 1027,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g030-seg10-single3",
+      "template": "small-white",
+      "startFrame": 1032,
+      "endFrame": 1044,
+      "parts": [
+        {
+          "text": "rémunérant",
+          "atFrame": 1032,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g031-seg10-calm",
+      "template": "staircase-highlight",
+      "intent": "claim",
+      "startFrame": 1044,
+      "endFrame": 1070,
+      "parts": [
+        {
+          "text": "au",
+          "atFrame": 1044,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "pourcentage",
+          "atFrame": 1054,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g032-seg11-single0",
+      "template": "small-white",
+      "startFrame": 1070,
+      "endFrame": 1078,
+      "parts": [
+        {
+          "text": "en moins",
+          "atFrame": 1070,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g032-seg11-single1",
+      "template": "small-white",
+      "startFrame": 1078,
+      "endFrame": 1081,
+      "parts": [
+        {
+          "text": "de",
+          "atFrame": 1078,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g032-seg11-single2",
+      "template": "highlight-only",
+      "startFrame": 1081,
+      "endFrame": 1097,
+      "parts": [
+        {
+          "text": "7 jours",
+          "atFrame": 1081,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g033-seg12-single0",
+      "template": "small-white",
+      "startFrame": 1097,
+      "endFrame": 1110,
+      "parts": [
+        {
+          "text": "on lance",
+          "atFrame": 1097,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g033-seg12-single1",
+      "template": "small-white",
+      "startFrame": 1110,
+      "endFrame": 1114,
+      "parts": [
+        {
+          "text": "les",
+          "atFrame": 1110,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g033-seg12-single2",
+      "template": "small-white",
+      "startFrame": 1114,
+      "endFrame": 1124,
+      "parts": [
+        {
+          "text": "publicités",
+          "atFrame": 1114,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g033-seg12-single3",
+      "template": "small-white",
+      "startFrame": 1124,
+      "endFrame": 1133,
+      "parts": [
+        {
+          "text": "de nos",
+          "atFrame": 1124,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g033-seg12-single4",
+      "template": "small-white",
+      "startFrame": 1133,
+      "endFrame": 1145,
+      "parts": [
+        {
+          "text": "clients",
+          "atFrame": 1133,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g034-seg13-single0",
+      "template": "small-white",
+      "startFrame": 1145,
+      "endFrame": 1151,
+      "parts": [
+        {
+          "text": "au bout",
+          "atFrame": 1145,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g034-seg13-single1",
+      "template": "small-white",
+      "startFrame": 1151,
+      "endFrame": 1154,
+      "parts": [
+        {
+          "text": "de",
+          "atFrame": 1151,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g034-seg13-single2",
+      "template": "highlight-only",
+      "startFrame": 1154,
+      "endFrame": 1162,
+      "parts": [
+        {
+          "text": "7 jours",
+          "atFrame": 1154,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g035-seg13-single0",
+      "template": "small-white",
+      "startFrame": 1162,
+      "endFrame": 1168,
+      "parts": [
+        {
+          "text": "ils ont",
+          "atFrame": 1162,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g035-seg13-single1",
+      "template": "small-white",
+      "startFrame": 1168,
+      "endFrame": 1175,
+      "parts": [
+        {
+          "text": "donc des",
+          "atFrame": 1168,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g035-seg13-single2",
+      "template": "highlight-only",
+      "startFrame": 1175,
+      "endFrame": 1195,
+      "parts": [
+        {
+          "text": "appels qualifiés",
+          "atFrame": 1175,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g036-seg13-single0",
+      "template": "small-white",
+      "startFrame": 1195,
+      "endFrame": 1207,
+      "parts": [
+        {
+          "text": "des prospects",
+          "atFrame": 1195,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g036-seg13-single1",
+      "template": "small-white",
+      "startFrame": 1207,
+      "endFrame": 1218,
+      "parts": [
+        {
+          "text": "qualifiés",
+          "atFrame": 1207,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g037-seg13-single0",
+      "template": "small-white",
+      "startFrame": 1218,
+      "endFrame": 1229,
+      "parts": [
+        {
+          "text": "des ventes",
+          "atFrame": 1218,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g037-seg13-single1",
+      "template": "small-white",
+      "startFrame": 1229,
+      "endFrame": 1246,
+      "parts": [
+        {
+          "text": "qui suivent",
+          "atFrame": 1229,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g038-seg14-calm",
+      "template": "staircase-highlight",
+      "intent": "claim",
+      "startFrame": 1246,
+      "endFrame": 1283,
+      "parts": [
+        {
+          "text": "ils ont",
+          "atFrame": 1246,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "10 experts",
+          "atFrame": 1253,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g039-seg15-single0",
+      "template": "small-white",
+      "startFrame": 1283,
+      "endFrame": 1303,
+      "parts": [
+        {
+          "text": "à disposition",
+          "atFrame": 1283,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g039-seg15-single1",
+      "template": "small-white",
+      "startFrame": 1303,
+      "endFrame": 1325,
+      "parts": [
+        {
+          "text": "dans leur",
+          "atFrame": 1303,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g039-seg15-single2",
+      "template": "small-white",
+      "startFrame": 1325,
+      "endFrame": 1346,
+      "parts": [
+        {
+          "text": "activité",
+          "atFrame": 1325,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g040-seg16-single0",
+      "template": "small-white",
+      "startFrame": 1346,
+      "endFrame": 1351,
+      "parts": [
+        {
+          "text": "pendant",
+          "atFrame": 1346,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g040-seg16-single1",
+      "template": "small-white",
+      "startFrame": 1351,
+      "endFrame": 1365,
+      "parts": [
+        {
+          "text": "un an",
+          "atFrame": 1351,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g040-seg16-single2",
+      "template": "small-white",
+      "startFrame": 1365,
+      "endFrame": 1378,
+      "parts": [
+        {
+          "text": "avec un",
+          "atFrame": 1365,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g040-seg16-single3",
+      "template": "small-white",
+      "startFrame": 1378,
+      "endFrame": 1387,
+      "parts": [
+        {
+          "text": "expert",
+          "atFrame": 1378,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g041-seg16-single0",
+      "template": "small-white",
+      "startFrame": 1387,
+      "endFrame": 1402,
+      "parts": [
+        {
+          "text": "sur chacune",
+          "atFrame": 1387,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g041-seg16-single1",
+      "template": "small-white",
+      "startFrame": 1402,
+      "endFrame": 1405,
+      "parts": [
+        {
+          "text": "des",
+          "atFrame": 1402,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g041-seg16-single2",
+      "template": "small-white",
+      "startFrame": 1405,
+      "endFrame": 1426,
+      "parts": [
+        {
+          "text": "verticales",
+          "atFrame": 1405,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g042-seg17-single0",
+      "template": "small-white",
+      "startFrame": 1426,
+      "endFrame": 1438,
+      "parts": [
+        {
+          "text": "avec un",
+          "atFrame": 1426,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g042-seg17-single1",
+      "template": "small-white",
+      "startFrame": 1438,
+      "endFrame": 1450,
+      "parts": [
+        {
+          "text": "expert sur",
+          "atFrame": 1438,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g042-seg17-single2",
+      "template": "small-white",
+      "startFrame": 1450,
+      "endFrame": 1461,
+      "parts": [
+        {
+          "text": "marketing",
+          "atFrame": 1450,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g043-seg17-single0",
+      "template": "small-white",
+      "startFrame": 1461,
+      "endFrame": 1473,
+      "parts": [
+        {
+          "text": "sur la",
+          "atFrame": 1461,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g043-seg17-single1",
+      "template": "small-white",
+      "startFrame": 1473,
+      "endFrame": 1479,
+      "parts": [
+        {
+          "text": "vente",
+          "atFrame": 1473,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g044-seg17-single0",
+      "template": "small-white",
+      "startFrame": 1479,
+      "endFrame": 1484,
+      "parts": [
+        {
+          "text": "sur le",
+          "atFrame": 1479,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g044-seg17-single1",
+      "template": "small-white",
+      "startFrame": 1484,
+      "endFrame": 1495,
+      "parts": [
+        {
+          "text": "média buying",
+          "atFrame": 1484,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g045-seg17-single0",
+      "template": "small-white",
+      "startFrame": 1495,
+      "endFrame": 1511,
+      "parts": [
+        {
+          "text": "bref un",
+          "atFrame": 1495,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g045-seg17-single1",
+      "template": "small-white",
+      "startFrame": 1511,
+      "endFrame": 1523,
+      "parts": [
+        {
+          "text": "expert sur",
+          "atFrame": 1511,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g045-seg17-single2",
+      "template": "small-white",
+      "startFrame": 1523,
+      "endFrame": 1534,
+      "parts": [
+        {
+          "text": "chacune des",
+          "atFrame": 1523,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g045-seg17-single3",
+      "template": "small-white",
+      "startFrame": 1534,
+      "endFrame": 1552,
+      "parts": [
+        {
+          "text": "expertises",
+          "atFrame": 1534,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g046-seg18-calm",
+      "template": "staircase-white",
+      "intent": "claim",
+      "startFrame": 1552,
+      "endFrame": 1616,
+      "parts": [
+        {
+          "text": "45 heures",
+          "atFrame": 1552,
+          "variant": "large",
+          "animation": "cut"
+        },
+        {
+          "text": "d'appels de",
+          "atFrame": 1577,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "groupes",
+          "atFrame": 1602,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g047-seg18-single0",
+      "template": "small-white",
+      "startFrame": 1616,
+      "endFrame": 1629,
+      "parts": [
+        {
+          "text": "et de",
+          "atFrame": 1616,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g047-seg18-single1",
+      "template": "small-white",
+      "startFrame": 1629,
+      "endFrame": 1651,
+      "parts": [
+        {
+          "text": "petits groupes",
+          "atFrame": 1629,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g048-seg19-single0",
+      "template": "small-white",
+      "startFrame": 1651,
+      "endFrame": 1658,
+      "parts": [
+        {
+          "text": "et il",
+          "atFrame": 1651,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g048-seg19-single1",
+      "template": "small-white",
+      "startFrame": 1658,
+      "endFrame": 1661,
+      "parts": [
+        {
+          "text": "n'y a",
+          "atFrame": 1658,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g048-seg19-single2",
+      "template": "small-white",
+      "startFrame": 1661,
+      "endFrame": 1671,
+      "parts": [
+        {
+          "text": "pas des",
+          "atFrame": 1661,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g048-seg19-single3",
+      "template": "small-white",
+      "startFrame": 1671,
+      "endFrame": 1692,
+      "parts": [
+        {
+          "text": "modules vidéo",
+          "atFrame": 1671,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g049-seg19-single0",
+      "template": "small-white",
+      "startFrame": 1692,
+      "endFrame": 1704,
+      "parts": [
+        {
+          "text": "qui durent",
+          "atFrame": 1692,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g049-seg19-single1",
+      "template": "small-white",
+      "startFrame": 1704,
+      "endFrame": 1711,
+      "parts": [
+        {
+          "text": "des heures",
+          "atFrame": 1704,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g049-seg19-single2",
+      "template": "small-white",
+      "startFrame": 1711,
+      "endFrame": 1719,
+      "parts": [
+        {
+          "text": "qui sont",
+          "atFrame": 1711,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g049-seg19-single3",
+      "template": "large-white",
+      "startFrame": 1719,
+      "endFrame": 1740,
+      "parts": [
+        {
+          "text": "interminables",
+          "atFrame": 1719,
+          "variant": "large",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g050-seg20-single0",
+      "template": "small-white",
+      "startFrame": 1740,
+      "endFrame": 1749,
+      "parts": [
+        {
+          "text": "tout est",
+          "atFrame": 1740,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g050-seg20-single1",
+      "template": "small-white",
+      "startFrame": 1749,
+      "endFrame": 1765,
+      "parts": [
+        {
+          "text": "extrêmement",
+          "atFrame": 1749,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g050-seg20-single2",
+      "template": "highlight-only",
+      "startFrame": 1765,
+      "endFrame": 1788,
+      "parts": [
+        {
+          "text": "personnalisé",
+          "atFrame": 1765,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g051-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1788,
+      "endFrame": 1798,
+      "parts": [
+        {
+          "text": "en plus",
+          "atFrame": 1788,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g051-seg21-single1",
+      "template": "small-white",
+      "startFrame": 1798,
+      "endFrame": 1806,
+      "parts": [
+        {
+          "text": "de ça",
+          "atFrame": 1798,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g051-seg21-single2",
+      "template": "small-white",
+      "startFrame": 1806,
+      "endFrame": 1813,
+      "parts": [
+        {
+          "text": "on vous",
+          "atFrame": 1806,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g051-seg21-single3",
+      "template": "small-white",
+      "startFrame": 1813,
+      "endFrame": 1816,
+      "parts": [
+        {
+          "text": "met",
+          "atFrame": 1813,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g051-seg21-single4",
+      "template": "small-white",
+      "startFrame": 1816,
+      "endFrame": 1829,
+      "parts": [
+        {
+          "text": "à disposition",
+          "atFrame": 1816,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g052-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1829,
+      "endFrame": 1838,
+      "parts": [
+        {
+          "text": "nos",
+          "atFrame": 1829,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g052-seg21-single1",
+      "template": "large-white",
+      "startFrame": 1838,
+      "endFrame": 1852,
+      "parts": [
+        {
+          "text": "technologies",
+          "atFrame": 1838,
+          "variant": "large",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g053-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1852,
+      "endFrame": 1861,
+      "parts": [
+        {
+          "text": "on a",
+          "atFrame": 1852,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g053-seg21-single1",
+      "template": "small-white",
+      "startFrame": 1861,
+      "endFrame": 1873,
+      "parts": [
+        {
+          "text": "investi",
+          "atFrame": 1861,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g053-seg21-single2",
+      "template": "small-white",
+      "startFrame": 1873,
+      "endFrame": 1890,
+      "parts": [
+        {
+          "text": "des dizaines",
+          "atFrame": 1873,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g054-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1890,
+      "endFrame": 1899,
+      "parts": [
+        {
+          "text": "de milliers",
+          "atFrame": 1890,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g054-seg21-single1",
+      "template": "small-white",
+      "startFrame": 1899,
+      "endFrame": 1905,
+      "parts": [
+        {
+          "text": "d'euros",
+          "atFrame": 1899,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g054-seg21-single2",
+      "template": "small-white",
+      "startFrame": 1905,
+      "endFrame": 1913,
+      "parts": [
+        {
+          "text": "dans des",
+          "atFrame": 1905,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g054-seg21-single3",
+      "template": "small-white",
+      "startFrame": 1913,
+      "endFrame": 1926,
+      "parts": [
+        {
+          "text": "logiciels",
+          "atFrame": 1913,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g055-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1926,
+      "endFrame": 1941,
+      "parts": [
+        {
+          "text": "pour vous",
+          "atFrame": 1926,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g055-seg21-single1",
+      "template": "small-white",
+      "startFrame": 1941,
+      "endFrame": 1954,
+      "parts": [
+        {
+          "text": "faciliter",
+          "atFrame": 1941,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g055-seg21-single2",
+      "template": "small-white",
+      "startFrame": 1954,
+      "endFrame": 1962,
+      "parts": [
+        {
+          "text": "la vie",
+          "atFrame": 1954,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g056-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1962,
+      "endFrame": 1971,
+      "parts": [
+        {
+          "text": "sur tous",
+          "atFrame": 1962,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g056-seg21-single1",
+      "template": "small-white",
+      "startFrame": 1971,
+      "endFrame": 1980,
+      "parts": [
+        {
+          "text": "les points",
+          "atFrame": 1971,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g056-seg21-single2",
+      "template": "small-white",
+      "startFrame": 1980,
+      "endFrame": 1988,
+      "parts": [
+        {
+          "text": "techniques",
+          "atFrame": 1980,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g057-seg21-single0",
+      "template": "small-white",
+      "startFrame": 1988,
+      "endFrame": 1997,
+      "parts": [
+        {
+          "text": "que vous",
+          "atFrame": 1988,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g057-seg21-single1",
+      "template": "small-white",
+      "startFrame": 1997,
+      "endFrame": 2007,
+      "parts": [
+        {
+          "text": "n'aimez pas",
+          "atFrame": 1997,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g057-seg21-single2",
+      "template": "small-white",
+      "startFrame": 2007,
+      "endFrame": 2013,
+      "parts": [
+        {
+          "text": "faire",
+          "atFrame": 2007,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g058-seg21-single0",
+      "template": "small-white",
+      "startFrame": 2013,
+      "endFrame": 2021,
+      "parts": [
+        {
+          "text": "qui sont",
+          "atFrame": 2013,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g058-seg21-single1",
+      "template": "small-white",
+      "startFrame": 2021,
+      "endFrame": 2029,
+      "parts": [
+        {
+          "text": "chiants",
+          "atFrame": 2021,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g058-seg21-single2",
+      "template": "small-white",
+      "startFrame": 2029,
+      "endFrame": 2041,
+      "parts": [
+        {
+          "text": "etc",
+          "atFrame": 2029,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g059-seg22-single0",
+      "template": "small-white",
+      "startFrame": 2042,
+      "endFrame": 2048,
+      "parts": [
+        {
+          "text": "tout ce",
+          "atFrame": 2042,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g059-seg22-single1",
+      "template": "small-white",
+      "startFrame": 2048,
+      "endFrame": 2051,
+      "parts": [
+        {
+          "text": "qui est",
+          "atFrame": 2048,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g059-seg22-single2",
+      "template": "small-white",
+      "startFrame": 2051,
+      "endFrame": 2058,
+      "parts": [
+        {
+          "text": "tunnel",
+          "atFrame": 2051,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g059-seg22-single3",
+      "template": "small-white",
+      "startFrame": 2058,
+      "endFrame": 2068,
+      "parts": [
+        {
+          "text": "de vente",
+          "atFrame": 2058,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g060-seg22-single0",
+      "template": "small-white",
+      "startFrame": 2068,
+      "endFrame": 2083,
+      "parts": [
+        {
+          "text": "marketing",
+          "atFrame": 2068,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g060-seg22-single1",
+      "template": "small-white",
+      "startFrame": 2083,
+      "endFrame": 2100,
+      "parts": [
+        {
+          "text": "tracking de",
+          "atFrame": 2083,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g060-seg22-single2",
+      "template": "small-white",
+      "startFrame": 2100,
+      "endFrame": 2106,
+      "parts": [
+        {
+          "text": "data",
+          "atFrame": 2100,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g060-seg22-single3",
+      "template": "small-white",
+      "startFrame": 2106,
+      "endFrame": 2118,
+      "parts": [
+        {
+          "text": "etc",
+          "atFrame": 2106,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g061-seg23-single0",
+      "template": "small-white",
+      "startFrame": 2120,
+      "endFrame": 2128,
+      "parts": [
+        {
+          "text": "donc ça",
+          "atFrame": 2120,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g061-seg23-single1",
+      "template": "small-white",
+      "startFrame": 2128,
+      "endFrame": 2131,
+      "parts": [
+        {
+          "text": "vous",
+          "atFrame": 2128,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g061-seg23-single2",
+      "template": "small-white",
+      "startFrame": 2131,
+      "endFrame": 2138,
+      "parts": [
+        {
+          "text": "intéresse",
+          "atFrame": 2131,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g062-seg23-single0",
+      "template": "small-white",
+      "startFrame": 2138,
+      "endFrame": 2146,
+      "parts": [
+        {
+          "text": "d'en savoir",
+          "atFrame": 2138,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g062-seg23-single1",
+      "template": "small-white",
+      "startFrame": 2146,
+      "endFrame": 2150,
+      "parts": [
+        {
+          "text": "un petit",
+          "atFrame": 2146,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g062-seg23-single2",
+      "template": "small-white",
+      "startFrame": 2150,
+      "endFrame": 2157,
+      "parts": [
+        {
+          "text": "peu plus",
+          "atFrame": 2150,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g062-seg23-single3",
+      "template": "small-white",
+      "startFrame": 2157,
+      "endFrame": 2162,
+      "parts": [
+        {
+          "text": "sur ce",
+          "atFrame": 2157,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g062-seg23-single4",
+      "template": "small-white",
+      "startFrame": 2162,
+      "endFrame": 2172,
+      "parts": [
+        {
+          "text": "modèle",
+          "atFrame": 2162,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g063-seg24-calm",
+      "template": "staircase-highlight",
+      "intent": "claim",
+      "startFrame": 2172,
+      "endFrame": 2192,
+      "parts": [
+        {
+          "text": "cliquez",
+          "atFrame": 2172,
+          "variant": "large",
+          "animation": "cut"
+        },
+        {
+          "text": "sur le",
+          "atFrame": 2182,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "bouton",
+          "atFrame": 2188,
+          "variant": "highlight",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g064-seg24-calm",
+      "template": "staircase-white",
+      "intent": "claim",
+      "startFrame": 2192,
+      "endFrame": 2207,
+      "parts": [
+        {
+          "text": "sous la",
+          "atFrame": 2192,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "vidéo",
+          "atFrame": 2200,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g065-seg24-single0",
+      "template": "small-white",
+      "startFrame": 2207,
+      "endFrame": 2214,
+      "parts": [
+        {
+          "text": "pour en",
+          "atFrame": 2207,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g065-seg24-single1",
+      "template": "small-white",
+      "startFrame": 2214,
+      "endFrame": 2222,
+      "parts": [
+        {
+          "text": "savoir un",
+          "atFrame": 2214,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g065-seg24-single2",
+      "template": "small-white",
+      "startFrame": 2222,
+      "endFrame": 2228,
+      "parts": [
+        {
+          "text": "petit peu",
+          "atFrame": 2222,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g065-seg24-single3",
+      "template": "small-white",
+      "startFrame": 2228,
+      "endFrame": 2235,
+      "parts": [
+        {
+          "text": "plus",
+          "atFrame": 2228,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g066-seg24-single0",
+      "template": "small-white",
+      "startFrame": 2235,
+      "endFrame": 2243,
+      "parts": [
+        {
+          "text": "et nous",
+          "atFrame": 2235,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g066-seg24-single1",
+      "template": "small-white",
+      "startFrame": 2243,
+      "endFrame": 2247,
+      "parts": [
+        {
+          "text": "on se",
+          "atFrame": 2243,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g066-seg24-single2",
+      "template": "small-white",
+      "startFrame": 2247,
+      "endFrame": 2252,
+      "parts": [
+        {
+          "text": "retrouve",
+          "atFrame": 2247,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g066-seg24-single3",
+      "template": "small-white",
+      "startFrame": 2252,
+      "endFrame": 2265,
+      "parts": [
+        {
+          "text": "directement",
+          "atFrame": 2252,
+          "variant": "small",
+          "animation": "cut"
+        }
+      ]
+    },
+    {
+      "id": "v2g067-seg24-calm",
+      "template": "staircase-white",
+      "intent": "claim",
+      "startFrame": 2265,
+      "endFrame": 2288,
+      "parts": [
+        {
+          "text": "de",
+          "atFrame": 2265,
+          "variant": "small",
+          "animation": "cut"
+        },
+        {
+          "text": "l'autre côté",
+          "atFrame": 2275,
+          "variant": "large",
+          "animation": "cut"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "QualityCut"
+  short_description: "Coupes précises : jugement Nico et pipeline UpTrainer"
+  default_prompt: "Use $qualitycut to select complete takes, calculate precise speech cuts and verify the result for the requested video or timeline."

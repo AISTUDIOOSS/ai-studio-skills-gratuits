@@ -1,0 +1,618 @@
+{
+  "schemaVersion": 1,
+  "renderer": "dom",
+  "theme": null,
+  "elements": [
+    {
+      "id": "step1",
+      "text": "01video-viral",
+      "color": "#000000",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "s2niche",
+      "text": "# ta niche",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "s2hook",
+      "text": "●hook 0–3 s",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "step2",
+      "text": "02video-script",
+      "color": "#000000",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "chip3",
+      "text": "✦accroche 1",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "chip4",
+      "text": "✦accroche 2",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "chip5",
+      "text": "✦accroche 3",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "step3",
+      "text": "03humanize",
+      "color": "#000000",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "step4",
+      "text": "04video-edit",
+      "color": "#000000",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "step5",
+      "text": "05long-to-short",
+      "color": "#000000",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "s7zero",
+      "text": "0 € · aucun compte",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "s8dm",
+      "text": "✦DM · installation pas à pas",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap0",
+      "text": "NE POSTE PLUS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap1",
+      "text": "UN SEUL RÉEL",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap2",
+      "text": "AVANT D'INSTALLER",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap3",
+      "text": "CES 5 SKILLS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap4",
+      "text": "CLAUDE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap5",
+      "text": "JE LES AI MIS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap6",
+      "text": "GRATUITEMENT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap7",
+      "text": "SUR GITHUB",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap8",
+      "text": "ET ILS FONT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap9",
+      "text": "DE CLAUDE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap10",
+      "text": "TOUTE TON ÉQUIPE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap11",
+      "text": "VIDÉO",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap12",
+      "text": "LE PREMIER",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap13",
+      "text": "TROUVE DES RÉELS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap14",
+      "text": "QUI EXPLOSENT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap15",
+      "text": "DANS TA NICHE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap16",
+      "text": "IL TE NOTE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap17",
+      "text": "LEURS 3 PREMIÈRES",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap18",
+      "text": "SECONDES",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap19",
+      "text": "LE DEUXIÈME",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap20",
+      "text": "ÉCRIT TES SCRIPTS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap21",
+      "text": "DE LA SEMAINE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap22",
+      "text": "AVEC 3 ACCROCHES",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap23",
+      "text": "POUR CHACUN",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap24",
+      "text": "LE TROISIÈME",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap25",
+      "text": "ENLÈVE TOUT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap26",
+      "text": "CE QUI SONNE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap27",
+      "text": "COMME CHATGPT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap28",
+      "text": "LE QUATRIÈME",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap29",
+      "text": "MONTE TA VIDÉO",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap30",
+      "text": "SOUS-TITRES",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap31",
+      "text": "BLANCS COUPÉS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap32",
+      "text": "ZOOM",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap33",
+      "text": "ET TU AS UN",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap34",
+      "text": "MP4",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap35",
+      "text": "PRÊT À POSTER",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap36",
+      "text": "MAIS LE DERNIER",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap37",
+      "text": "C'EST CELUI",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap38",
+      "text": "QUE JE PRÉFÈRE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap39",
+      "text": "TU LUI DONNES",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap40",
+      "text": "UNE VIDÉO LONGUE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap41",
+      "text": "ET IL T'EN SORT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap42",
+      "text": "PLUSIEURS SHORTS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap43",
+      "text": "CE SONT JUSTE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap44",
+      "text": "DES FICHIERS TEXTE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap45",
+      "text": "TU N'AS NI",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap46",
+      "text": "ABONNEMENT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap47",
+      "text": "NI COMPTE À CRÉER",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap48",
+      "text": "COMMENTE SKILLS",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap49",
+      "text": "ABONNE-TOI",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap50",
+      "text": "ET JE T'ENVOIE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap51",
+      "text": "L'INSTALLATION",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap52",
+      "text": "ÉTAPE PAR ÉTAPE",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap53",
+      "text": "EN DM",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    },
+    {
+      "id": "cap54",
+      "text": "MAINTENANT",
+      "fontSize": 46,
+      "letterSpacing": -0.02,
+      "fontFamily": "Frame Inter-700",
+      "translate": "0px 0px"
+    }
+  ],
+  "styleTypes": [
+    {
+      "key": "cap st-cap",
+      "type": "caption",
+      "label": "Pastille sous-titre",
+      "classes": [
+        "cap",
+        "st-cap"
+      ],
+      "count": 55,
+      "original": {
+        "fontSize": 58,
+        "color": "#ffffff",
+        "backgroundColor": "#111111",
+        "letterSpacing": -0.017,
+        "textTransform": "none",
+        "fontFamily": "Geist Mono, monospace"
+      },
+      "changes": {
+        "fontSize": 46,
+        "letterSpacing": -0.02,
+        "fontFamily": "Frame Inter-700"
+      }
+    },
+    {
+      "key": "pill st-step",
+      "type": "animation",
+      "label": "Pastille d'étape",
+      "classes": [
+        "pill",
+        "st-step"
+      ],
+      "count": 5,
+      "original": {
+        "fontSize": 34,
+        "color": "#1f1b16",
+        "backgroundColor": "#ffffff",
+        "letterSpacing": 0,
+        "textTransform": "none",
+        "fontFamily": "Geist Mono, monospace"
+      },
+      "changes": {
+        "color": "#000000"
+      }
+    },
+    {
+      "key": "chipui st-chip",
+      "type": "animation",
+      "label": "Chip UI",
+      "classes": [
+        "chipui",
+        "st-chip"
+      ],
+      "count": 3,
+      "original": {
+        "fontSize": 28,
+        "color": "#1f1b16",
+        "backgroundColor": "#ffffff",
+        "letterSpacing": 0,
+        "textTransform": "none",
+        "fontFamily": "Geist Mono, monospace"
+      },
+      "changes": {}
+    },
+    {
+      "key": "abs chipui s3c st-chip",
+      "type": "animation",
+      "label": "Chip accroche",
+      "classes": [
+        "abs",
+        "chipui",
+        "s3c",
+        "st-chip"
+      ],
+      "count": 3,
+      "original": {
+        "fontSize": 28,
+        "color": "#1f1b16",
+        "backgroundColor": "#ffffff",
+        "letterSpacing": 0,
+        "textTransform": "none",
+        "fontFamily": "Geist Mono, monospace"
+      },
+      "changes": {}
+    },
+    {
+      "key": "chipui dark st-chip",
+      "type": "animation",
+      "label": "Chip noir",
+      "classes": [
+        "chipui",
+        "dark",
+        "st-chip"
+      ],
+      "count": 1,
+      "original": {
+        "fontSize": 28,
+        "color": "#ffffff",
+        "backgroundColor": "#1f1b16",
+        "letterSpacing": 0,
+        "textTransform": "none",
+        "fontFamily": "Geist Mono, monospace"
+      },
+      "changes": {}
+    }
+  ]
+}
