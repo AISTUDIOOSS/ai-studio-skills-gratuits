@@ -1,6 +1,6 @@
 # Les skills montage vidéo d’AI Studio
 
-Six ressources gratuites à télécharger et à donner à ton agent IA.
+Sept ressources gratuites à télécharger et à donner à ton agent IA.
 
 **[Télécharger tout le pack en ZIP](https://github.com/AISTUDIOOSS/ai-studio-skills-gratuits/archive/refs/heads/main.zip)** — aucun compte ni invitation nécessaire.
 
@@ -12,6 +12,7 @@ Six ressources gratuites à télécharger et à donner à ton agent IA.
 | [Preset Melvyn v3](skills/preset-melvyn/SKILL.md) | Composition divisée, face caméra, schémas et pastilles de sous-titres. |
 | [Zooms secs](skills/zooms-secs/SKILL.md) | Changements de cadrage instantanés inspirés du preset Steve. |
 | [Zooms progressifs](skills/zooms-progressifs/SKILL.md) | Rapprochements et éloignements fluides, réglables et reproductibles. |
+| [Animations HTML](skills/animations-html/SKILL.md) | Rejouer dans la conversation les animations d’une vidéo analysée (Claude Desktop). |
 
 ## Utilisation
 

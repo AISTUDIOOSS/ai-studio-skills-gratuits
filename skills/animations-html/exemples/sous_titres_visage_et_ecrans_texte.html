@@ -1,0 +1,56 @@
+<h2 class="sr-only">Six maquettes 9:16 animées de sous-titres : deux sur le visage et quatre écrans texte plein cadre en orange, crème et noir.</h2>
+<style>
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:0 0 1.25rem}
+.it{display:flex;flex-direction:column;align-items:center;gap:6px}
+.ph{--k:1;position:relative;width:140px;height:249px;border-radius:12px;overflow:hidden;background:#d8d0c5;font-family:-apple-system,Inter,Helvetica,sans-serif}
+.bed{position:absolute;left:0;right:0;bottom:0;height:38%;background:#efebe5}
+.hd{position:absolute;left:50%;top:40%;width:40px;height:48px;margin-left:-20px;border-radius:50%;background:#c79d7f}
+.hr{position:absolute;left:50%;top:37%;width:52px;height:66px;margin-left:-26px;border-radius:26px 26px 10px 10px;background:#a07a52}
+.bd{position:absolute;left:50%;bottom:-6px;width:100px;height:112px;margin-left:-50px;border-radius:40px 40px 0 0;background:#151515}
+.tx{position:absolute;left:0;right:0;top:63%;text-align:center;color:#fff;line-height:1}
+.sm{font-size:11px;font-weight:400;display:block}
+.bg{font-size:30px;font-weight:900;letter-spacing:-1px;display:block;margin-top:2px}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1}
+.an{animation-duration:calc(3.6s*var(--k));animation-iteration-count:infinite;animation-fill-mode:both}
+.lb{font-size:13px;color:var(--text-primary);font-weight:500}
+.ds{font-size:12px;color:var(--text-secondary);text-align:center;line-height:1.4}
+@keyframes inSm{0%,3%{opacity:0;transform:translateY(6px)}9%,90%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes inBg{0%,14%{opacity:0;transform:scale(1.6)}20%{opacity:1;transform:scale(.94)}24%,90%{transform:scale(1);opacity:1}100%{opacity:0}}
+@keyframes g1{0%,46%{opacity:1}47%,100%{opacity:0}}
+@keyframes g2{0%,46%{opacity:0}47%,100%{opacity:1}}
+@keyframes scr{0%,30%{opacity:0}30.1%,80%{opacity:1}80.1%,100%{opacity:0}}
+@keyframes w1{0%,33%{opacity:0;transform:translateY(8px)}37%,80%{opacity:1;transform:none}80.1%,100%{opacity:0}}
+@keyframes w2{0%,42%{opacity:0;transform:scale(1.8)}47%{opacity:1;transform:scale(.92)}50%,80%{opacity:1;transform:scale(1)}80.1%,100%{opacity:0}}
+@keyframes w3{0%,58%{opacity:0;transform:translateY(8px)}62%,80%{opacity:1;transform:none}80.1%,100%{opacity:0}}
+@keyframes deform{0%,42%{opacity:0;transform:scaleX(.4) scaleY(1.9)}48%{opacity:1;transform:scaleX(1.1) scaleY(.9)}52%,80%{opacity:1;transform:scaleX(1) scaleY(1)}80.1%,100%{opacity:0}}
+@keyframes wipe{0%,30%{clip-path:inset(100% 0 0 0)}36%,80%{clip-path:inset(0 0 0 0)}86%,100%{clip-path:inset(0 0 100% 0)}}
+@keyframes c1{0%,34%{opacity:0}34.1%,80%{opacity:1}80.1%,100%{opacity:0}}
+@keyframes c2{0%,46%{opacity:0}46.1%,80%{opacity:1}80.1%,100%{opacity:0}}
+@keyframes c3{0%,58%{opacity:0}58.1%,80%{opacity:1}80.1%,100%{opacity:0}}
+</style>
+
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 1rem;flex-wrap:wrap">
+<button id="rp"><i class="ti ti-refresh" aria-hidden="true"></i> Rejouer tout</button>
+<label style="font-size:14px;color:var(--text-secondary)">Vitesse</label>
+<select id="sp"><option value="1">×1</option><option value="2">×0,5</option><option value="4">×0,25</option></select>
+</div>
+
+<p style="font-size:13px;color:var(--text-secondary);margin:0 0 .6rem">Sur le visage</p>
+<div class="g">
+<div class="it"><div class="ph"><div class="bed"></div><div class="hr"></div><div class="hd"></div><div class="bd"></div><div class="tx"><span class="sm an" style="animation-name:inSm">ton montage</span><span class="bg an" style="animation-name:inBg">l'IA</span></div></div><span class="lb">1 · Cumulatif punch</span><span class="ds">Petit mot puis mot géant</span></div>
+<div class="it"><div class="ph"><div class="bed"></div><div class="hr"></div><div class="hd"></div><div class="bd"></div><div class="tx"><div class="an" style="animation-name:g1;position:absolute;left:0;right:0"><span class="sm">vidéo mais</span><span class="bg">l'IA</span></div><div class="an" style="animation-name:g2;position:absolute;left:0;right:0"><span class="sm">ça change</span><span class="bg">TOUT</span></div></div></div><span class="lb">2 · Remplacement sec</span><span class="ds">Bloc entier coupé au suivant</span></div>
+</div>
+
+<p style="font-size:13px;color:var(--text-secondary);margin:0 0 .6rem">Écrans texte plein cadre, coupe sèche depuis le visage</p>
+<div class="g">
+<div class="it"><div class="ph"><div class="bed"></div><div class="hr"></div><div class="hd"></div><div class="bd"></div><div class="sc an" style="animation-name:scr;background:#FF5900;color:#fff"><span class="an" style="animation-name:w1;font-size:12px">avec un seul</span><span class="an" style="animation-name:deform;font-size:40px;font-weight:900;letter-spacing:-2px;margin-top:4px">PROMPT</span></div></div><span class="lb">3 · Orange mot déformé</span><span class="ds">Petits mots puis géant étiré</span></div>
+<div class="it"><div class="ph"><div class="bed"></div><div class="hr"></div><div class="hd"></div><div class="bd"></div><div class="sc an" style="animation-name:scr;background:#F3EBDD;color:#151515"><span class="an" style="animation-name:w1;font-size:12px">tu passes de</span><span class="an" style="animation-name:w2;font-size:34px;font-weight:900;letter-spacing:-1px;margin:3px 0">3 jours</span><span class="an" style="animation-name:w3;font-size:12px">à 20 minutes</span></div></div><span class="lb">4 · Crème escalier</span><span class="ds">Petit · géant · petit</span></div>
+<div class="it"><div class="ph"><div class="bed"></div><div class="hr"></div><div class="hd"></div><div class="bd"></div><div class="sc" style="background:#151515;color:#fff;animation:wipe calc(3.6s*var(--k)) infinite both cubic-bezier(.7,0,.2,1)"><span class="an" style="animation-name:w1;font-size:12px;color:#FF5900">le secret</span><span class="an" style="animation-name:w2;font-size:34px;font-weight:900;letter-spacing:-1px;margin-top:3px">le KIT</span></div></div><span class="lb">5 · Noir en volet</span><span class="ds">L'écran monte, accent orange</span></div>
+<div class="it"><div class="ph"><div class="bed"></div><div class="hr"></div><div class="hd"></div><div class="bd"></div><div class="sc an" style="animation-name:scr;background:#FF5900;color:#fff;align-items:flex-start;padding-left:16px"><span class="an" style="animation-name:c1;font-size:28px;font-weight:900;letter-spacing:-1px">TU</span><span class="an" style="animation-name:c2;font-size:28px;font-weight:900;letter-spacing:-1px">COMMENTES</span><span class="an" style="animation-name:c3;font-size:28px;font-weight:900;letter-spacing:-1px;color:#151515">MONTAGE</span></div></div><span class="lb">6 · Pile mot par mot</span><span class="ds">Un mot par beat, aligné à gauche</span></div>
+</div>
+
+<script>
+function replay(){document.querySelectorAll('.an,.sc').forEach(e=>{const a=e.style.animation;e.style.animation='none';void e.offsetWidth;e.style.animation=a})}
+document.getElementById('rp').onclick=replay;
+document.getElementById('sp').onchange=e=>{document.querySelectorAll('.ph').forEach(p=>p.style.setProperty('--k',e.target.value));replay()};
+</script>
