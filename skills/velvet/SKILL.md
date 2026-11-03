@@ -50,11 +50,17 @@ cd PROJET && node ~/.claude/skills/velvet/preset/zones.cjs v1
 ```
 `zones.cjs` doit finir par `0 hors zone`. Les lignes brèves de `mesurer.py` sont à regarder, pas à corriger d'office (la référence en a 17).
 
-## 6. Rendre (en arrière-plan, 5 à 10 min)
+## 6. Rendre (plusieurs minutes)
+Le rendu tourne détaché, pour survivre si ta commande est coupée :
 ```bash
-cd PROJET/v1/composition && mkdir -p ../export && \
-npx --yes hyperframes@0.8.162 render . -o ../export/RUSH-velvet-v1-rendu.mp4 > ../render.log 2>&1
+cd PROJET/v1/composition && mkdir -p ../export && nohup sh -c \
+'npx --yes hyperframes@0.8.162 render . -o ../export/RUSH-velvet-v1-rendu.mp4 > ../render.log 2>&1; echo "FIN $?" >> ../render.log' >/dev/null 2>&1 &
 ```
+Puis attends la fin sans terminer ton tour, avec le délai maximum ; si l'attente est coupée, relance-la (pas le rendu) :
+```bash
+until grep -q '^FIN' PROJET/v1/render.log 2>/dev/null; do sleep 20; done; tail -5 PROJET/v1/render.log
+```
+`FIN 0` = réussi. Autre chiffre : lis `render.log`, corrige, relance le rendu.
 
 ## 7. Poser le son
 ```bash
