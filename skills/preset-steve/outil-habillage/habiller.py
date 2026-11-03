@@ -28,8 +28,7 @@ de 110 px), bloc centré en (540, 1120) ; capsule rouge = encre + 0,09 × taille
 à droite en 10 images (1 − (1 − u)³, u = (f − début + 1)/10) ; montée 28 px en 10 images (smootherstep quintique,
 opacité smoothstep en 5 images) pour les accents de 110 px visibles ≥ 16 images, coupe sèche sinon.
 
-Sorties : <out>/composition (index.html HyperFrames, captions-plan.json, assets/RUSH-cuts.mp4) et <out>/editable
-(aperçu à calques Frame : seekReview, reviewRelayout, theme.js + theme-panel.html). Les révisions demandées dans Frame
+Sortie : <out>/composition (index.html HyperFrames, captions-plan.json, assets/RUSH-cuts.mp4). Les retouches
 s'appliquent ensuite par calque : data-dx / data-dy (décalage relatif à la mise en page originale) et
 data-anim = cut | rise | fade | slide-up | slide-left | pop | none, avec data-anim-dur (secondes).
 """
@@ -156,10 +155,9 @@ probs += [('gros mot blanc bref (< 15 images)', c['id'], c['text']) for c in gro
 
 zooms = [{'plan': p['plan'], 'start': p['start'], 'end': p['end'], 'scale': [1.30, 1.12][n % 2]} for n, p in enumerate(plans)]
 D = N / FPS
-comp, edit = os.path.join(a.out, 'composition'), os.path.join(a.out, 'editable')
-for d in (comp, edit):
-    if os.path.exists(os.path.join(d, 'index.html')): sys.exit(f'{d} existe déjà : créer une nouvelle version (vN+1) plutôt que d’écraser.')
-    os.makedirs(os.path.join(d, 'assets'), exist_ok=True)
+comp = os.path.join(a.out, 'composition')
+if os.path.exists(os.path.join(comp, 'index.html')): sys.exit(f'{comp} existe déjà : créer une nouvelle version (vN+1) plutôt que d’écraser.')
+os.makedirs(os.path.join(comp, 'assets'), exist_ok=True)
 
 # Vidéo coupée : intervalles exacts de cuts.json sur la source normalisée (ré-encodage image près, audio compris).
 video = f'{a.rush}-cuts.mp4'
@@ -271,29 +269,6 @@ document.fonts.ready.then(()=>Promise.all(['CaptionHeavy','CaptionOblique','Capt
 </script></body></html>
 '''
 open(os.path.join(comp, 'index.html'), 'w').write(html)
-
-# Aperçu à calques Frame (--editable-dir) : même composition + adaptateur seekReview et variables de personnalisation.
-SEEK = '''// Aperçu à calques Frame : seekReview(secondes, lecture, vitesse) ; la vidéo de l'iframe reste muette, le MP4 maître est seul audible.
-window.seekReview=function(t,playing=false,rate=1){
-  const tl=window.__timelines&&window.__timelines.main; if(tl) tl.seek(t,false);
-  for(const c of document.querySelectorAll('.cap')){const [fs,fe]=frames(c),f=t*FPS;c.style.visibility=f>=fs-.5&&f<fe-.5?'visible':'hidden';}
-  const v=document.getElementById('facecam'); v.muted=true; v.playbackRate=rate;
-  if(playing){if(Math.abs(v.currentTime-t)>.18)v.currentTime=t;if(v.paused)v.play().catch(()=>{});}
-  else{v.pause();if(Math.abs(v.currentTime-t)>.015)v.currentTime=t;}
-};
-window.reviewRelayout=layout;
-'''
-THEME_CSS = (".s-w .tx{font-family:var(--title-font,CaptionHeavy);color:var(--theme-ink,#fff);letter-spacing:calc(-0.025em + var(--title-tracking,0px))}"
-  ".s-o .tx{font-family:var(--body-font,CaptionOblique);color:var(--theme-accent,#fff);letter-spacing:calc(-0.025em + var(--body-tracking,0px))}"
-  ".s-r .tx{font-family:var(--caption-font,CaptionLightOblique);color:var(--caption-text,#fff);letter-spacing:calc(-0.025em + var(--caption-tracking,0px))}"
-  ".s-r .box{background:var(--caption-bg,#ff0000)}\n")
-open(os.path.join(edit, 'index.html'), 'w').write(html.replace('<head>', '<head><script>window.__timelines=window.__timelines||{};</script>', 1)
-    .replace('<video id="facecam" class="clip" ', '<video id="facecam" ', 1).replace('</style></head>', THEME_CSS + '</style></head>', 1)
-    .replace('</script></body></html>', SEEK + '</script></body></html>'))
-for f in os.listdir(os.path.join(comp, 'assets')):
-    dst = os.path.join(edit, 'assets', f)
-    if not os.path.exists(dst): os.link(os.path.join(comp, 'assets', f), dst)
-for f in ('theme.js', 'theme-panel.html'): shutil.copy2(os.path.join(HERE, 'editable', f), os.path.join(edit, f))
 
 print(f'{len(groupes)} groupes, {len(caps)} calques, {N} images ({D:.3f} s) → {a.out}')
 for p in probs: print('À REVOIR', p)

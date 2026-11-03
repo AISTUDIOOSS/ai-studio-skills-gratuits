@@ -1,36 +1,39 @@
-# Les skills montage vidéo d’AI Studio
+# Le pack montage d'AI Studio, pour Claude Code
 
-Sept ressources gratuites à télécharger et à donner à ton agent IA.
+Monte tes vidéos face cam avec Claude Code, en une commande : `/velvet ton-rush.mp4`. Claude choisit les meilleures prises, coupe, ajoute les sous-titres, les gros mots, les écrans rouges, les zooms et les sons, puis te livre le MP4.
 
-**[Télécharger tout le pack en ZIP](https://github.com/AISTUDIOOSS/ai-studio-skills-gratuits/archive/refs/heads/main.zip)** — aucun compte ni invitation nécessaire.
+## Installation en un copier-coller
 
-| Ressource | Contenu |
+Ouvre Claude Code et colle ce message :
+
+```
+Installe le pack montage d'AI Studio : https://github.com/AISTUDIOOSS/ai-studio-skills-gratuits — lis INSTALL.md et fais tout.
+```
+
+Claude installe tout. Quand c'est fini, ferme Claude Code, rouvre-le, et tape `/velvet` suivi du chemin de ton rush.
+
+Il faut un **Mac Apple Silicon** (M1, M2, M3, M4…), **Claude Code** et quelques Go d'espace libre. et Google Chrome. La première installation prend plusieurs minutes. Pas de mot de passe à donner, aucune clé ni abonnement.
+
+## Ce que tu reçois
+
+| Skill | Ce qu'il fait |
 |---|---|
-| [Cut Fusion](skills/qualitycut/SKILL.md) | QualityCut fusion UpTrainer : préparation, transcription, alignement, sélection et coupes. |
-| [Analyse du style vidéo](skills/analyze-editing-inspiration/SKILL.md) | Décomposer une référence en règles de montage réutilisables. |
-| [Preset Steve classique v4](skills/preset-steve/SKILL.md) | Sous-titres, accents rouges, typographies et rythme ; sources et outil d’habillage. |
-| [Preset Melvyn v3](skills/preset-melvyn/SKILL.md) | Composition divisée, face caméra, schémas et pastilles de sous-titres. |
-| [Zooms secs](skills/zooms-secs/SKILL.md) | Changements de cadrage instantanés inspirés du preset Steve. |
-| [Zooms progressifs](skills/zooms-progressifs/SKILL.md) | Rapprochements et éloignements fluides, réglables et reproductibles. |
-| [Animations HTML](skills/animations-html/SKILL.md) | Rejouer dans la conversation les animations d’une vidéo analysée (Claude Desktop). |
+| [velvet](skills/velvet/SKILL.md) | `/velvet` : monte un rush de bout en bout au style VELVET (écrans rouges, gros mots, zooms secs, CTA, sons). |
+| [qualitycut](skills/qualitycut/SKILL.md) | Choisit les bonnes prises et coupe les hésitations, au mot près. |
+| [preset-steve](skills/preset-steve/SKILL.md) | Le style Steve : sous-titres, accents rouges, rythme. |
+| [preset-melvyn](skills/preset-melvyn/SKILL.md) | Écran divisé, face caméra, schémas, pastilles de sous-titres. |
+| [zooms-secs](skills/zooms-secs/SKILL.md) | Changements de cadrage instantanés. |
+| [zooms-progressifs](skills/zooms-progressifs/SKILL.md) | Zooms avant et arrière fluides. |
+| [analyze-editing-inspiration](skills/analyze-editing-inspiration/SKILL.md) | Transforme une vidéo qui t'inspire en règles de montage. |
+| [animations-html](skills/animations-html/SKILL.md) | Rejoue les animations d'une vidéo analysée. |
 
-## Utilisation
+Le guide pas à pas : [GUIDE-MONTAGE.md](GUIDE-MONTAGE.md).
 
-1. Télécharge et décompresse le ZIP.
-2. Donne à ton agent le dossier complet de la ressource choisie, avec ses sous-dossiers. Demande-lui de lire `SKILL.md` avant de travailler.
-3. Fournis ta vidéo et ta demande. Exemple : « Lis le skill zooms-secs et applique ses recadrages à ce montage, en conservant l’audio. »
+## Limites
 
-Pour une installation locale persistante : copie les dossiers choisis de `skills/` dans `~/.claude/skills/` pour Claude Code ou `~/.codex/skills/` pour Codex. Ne remplace pas une installation existante sans en conserver une copie. Ces ressources nécessitent un agent capable de lire les fichiers et, pour exécuter les scripts, d’utiliser un terminal local. Le téléchargement ne lance aucun programme.
+- Mac Apple Silicon uniquement. Les Mac Intel et Windows ne sont pas pris en charge.
+- Frame (l'application de montage d'AI Studio) n'est pas inclus.
+- L'outil d'alignement utilisé par QualityCut (MMS_FA) a une licence non commerciale : voir [les précisions](skills/qualitycut/references/pipeline-local.md#portée-de-laligneur) avant tout usage commercial.
+- Composants tiers : [THIRD-PARTY.md](THIRD-PARTY.md).
 
-## Prérequis et limites
-
-- Cut Fusion : Mac Apple Silicon, Python 3.9–3.12, FFmpeg/ffprobe. Installer `skills/qualitycut/requirements.txt` dans un environnement Python isolé ; les modèles sont téléchargés au premier usage. Aucun secret API n’est fourni ou requis par les scripts locaux.
-- L’aligneur MMS_FA utilisé par Cut Fusion est soumis à une licence non commerciale : lire [les précisions](skills/qualitycut/references/pipeline-local.md#portée-de-laligneur) avant usage commercial.
-- Les presets contiennent des recettes éditables et leurs règles, pas les rushes ou médias des anciennes vidéos. L’agent doit remplacer les médias d’exemple, adapter les textes et reconstruire les durées. Les scripts de rendu HyperFrames sont indiqués dans les `package.json` sources.
-- Les deux skills de zoom sont des instructions de montage, pas des extensions exécutables d’un logiciel.
-- Frame n’est pas inclus. Aucun abonnement à AI Studio n’est nécessaire pour télécharger ; les outils et services choisis peuvent avoir leurs propres coûts et conditions.
-- Les vérifications de ce dépôt portent sur le packaging, la syntaxe et la recherche de secrets. Aucun nouveau rendu vidéo de validation n’a été produit pour cette publication.
-
-Les visiteurs peuvent lire et télécharger ce dépôt. Le téléchargement ne donne aucun droit d’écriture sur le dépôt d’origine.
-
-Voir [THIRD-PARTY.md](THIRD-PARTY.md) pour les composants tiers.
+Installation manuelle, sans Claude : `git clone` de ce dépôt, puis `bash install.sh`.

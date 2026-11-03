@@ -1,11 +1,12 @@
-# Recolle depuis la première transcription (vidéo entière) les passages que la transcription par morceaux a perdus :
-# zones d'au moins 1 s où la 1re transcription a des mots et la seconde aucun.
+# Recolle depuis transcription/v1 les passages que la transcription de base a perdus :
+# zones d'au moins 1 s où v1 a des mots et la base aucun. Base = Scribe et v1 = Whisper par morceaux (flux Scribe),
+# ou base = Whisper par morceaux et v1 = Whisper vidéo entière (repli).
 import json, sys, os, re
 W = os.path.abspath(os.path.expanduser(os.environ.get('MONTAGE_DOSSIER', '.')))
-HALLU = re.compile(r"titrage|ST' ?501|Amara|Merci d'avoir regardé|Abonnez", re.I)
+HALLU = re.compile(r"sous-titr|-?titres? par|titrage|ST' ?501|Amara|Merci d'avoir regardé|Abonnez", re.I)
 for c in sys.argv[1:]:
     segs = [s for s in json.load(open(f'{W}/transcription/{c}.json')) if not HALLU.search(s['text'])]
-    v1 = json.load(open(f'{W}/transcription/v1/{c}.json'))
+    v1 = [s for s in json.load(open(f'{W}/transcription/v1/{c}.json')) if not HALLU.search(s['text'])]
     t2 = sorted(w['start'] for s in segs for w in s['words'])
     def couvert(t): return any(abs(t - u) < 0.8 for u in t2)
     orphelins = [w for s in v1 for w in s['words'] if not couvert(w['start'])]

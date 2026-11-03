@@ -1,19 +1,25 @@
 # Complète la transcription : toute zone où l'on parle (énergie) sans mot reconnu est retranscrite en petites
 # fenêtres, puis ajoutée aux segments (il faut ensuite réaligner avec moteur/aligner.py).
-import json, sys, os, numpy as np, scipy.io.wavfile as wf, mlx_whisper
+import json, re, sys, os, numpy as np, scipy.io.wavfile as wf, mlx_whisper
 W = os.path.abspath(os.path.expanduser(os.environ.get('MONTAGE_DOSSIER', '.')))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from couper import enveloppe, SEUIL_DB
+# génériques que Whisper invente sur les silences de fin
+HALLU = re.compile(r"sous-titr|-?titres? par|titrage|ST' ?501|Amara|Merci d'avoir regardé|Abonnez", re.I)
 PROMPT = "Euh, alors, euh... je, je vais, enfin, bref. Hum, du coup, en fait, voilà."
 
 def zones_oubliees(clip):
     mots = json.load(open(f'{W}/transcription/{clip}-aligne.json')); db = enveloppe(clip)
     bornes = [(0.0, mots[0]['debut'])] + [(mots[i]['fin'], mots[i + 1]['debut']) for i in range(len(mots) - 1)] \
              + [(mots[-1]['fin'], len(db) * 0.005)]
+    # seuil relatif au bruit de fond réel du rush (médiane des blancs + 10 dB) : une pièce bruyante à -50 dB
+    # ne doit pas passer pour de la parole, sinon Whisper y recopie les mots voisins
+    blancs = [db[int(a / 0.005):int(b / 0.005)] for a, b in bornes if b - a >= 0.3]
+    seuil = max(SEUIL_DB, float(np.median(np.concatenate(blancs))) + 10) if blancs else SEUIL_DB
     out = []
     for a, b in bornes:
         if b - a < 0.8: continue
         seg = db[int(a / 0.005):int(b / 0.005)]
-        if np.mean(seg > SEUIL_DB) > 0.30 and np.sum(seg > SEUIL_DB) * 0.005 > 0.5:
+        if np.mean(seg > seuil) > 0.30 and np.sum(seg > seuil) * 0.005 > 0.5:
             out.append((a, b))
     return out
 
@@ -64,7 +70,7 @@ def main():
                 for s in r['segments']:
                     ws = [dict(w, start=round(d0 + w['start'], 3), end=round(d0 + w['end'], 3)) for w in s.get('words', [])
                           if d - 0.1 <= d0 + w['start'] <= f + 0.1]
-                    if not ws or s['text'].strip() in PROMPT: continue
+                    if not ws or s['text'].strip() in PROMPT or HALLU.search(s['text']): continue
                     segs.append({'start': ws[0]['start'], 'end': ws[-1]['end'], 'text': ' '.join(w['word'].strip() for w in ws),
                                  'words': ws, 'complement': True})
                     ajout += len(ws)

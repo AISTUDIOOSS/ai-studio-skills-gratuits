@@ -16,9 +16,16 @@ for f in "$@"; do
                                     ffmpeg -nostdin -v error -y -i "$D/sources/$b.mov" -map 0:a:0 -ac 2 -c:a pcm_s16le "$D/audio/$b-48k.wav"; }
 done
 cd "$D/transcription"
-"$PY" "$I/transcrire.py" "${CLIPS[@]}"                         # 1re passe : vidéo entière
-for c in "${CLIPS[@]}"; do cp "$c.json" v1/; cp "$c.txt" v1/; rm -f "$c.json"; done
-"$PY" "$I/transcrire_morceaux.py" "${CLIPS[@]}"                # 2e passe : par morceaux de parole (garde les reprises)
+if [ "${QUALITYCUT_SCRIBE:-1}" != 0 ] && "$PY" "$I/transcrire_scribe.py" "${CLIPS[@]}"; then
+  # 1re passe Scribe (ElevenLabs) = texte de base ; la passe Whisper par morceaux devient la source de rattrapage (v1/)
+  for c in "${CLIPS[@]}"; do cp "$c.json" "v1/$c-scribe.json"; cp "$c.txt" "v1/$c-scribe.txt"; done
+  "$PY" "$I/transcrire_morceaux.py" "${CLIPS[@]}"              # Whisper par morceaux de parole (garde les reprises)
+  for c in "${CLIPS[@]}"; do mv "$c.json" v1/; mv "$c.txt" v1/; cp "v1/$c-scribe.json" "$c.json"; cp "v1/$c-scribe.txt" "$c.txt"; done
+else
+  "$PY" "$I/transcrire.py" "${CLIPS[@]}"                       # repli : 1re passe Whisper, vidéo entière
+  for c in "${CLIPS[@]}"; do cp "$c.json" v1/; cp "$c.txt" v1/; rm -f "$c.json"; done
+  "$PY" "$I/transcrire_morceaux.py" "${CLIPS[@]}"              # 2e passe : par morceaux de parole (garde les reprises)
+fi
 "$PY" "$I/aligner.py" "${CLIPS[@]}"
 "$PY" "$I/completer.py" "${CLIPS[@]}"                          # zones parlées restées sans mot
 "$PY" "$I/fusion_v1.py" "${CLIPS[@]}"                          # passages perdus, repris de la 1re passe

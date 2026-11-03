@@ -1,9 +1,8 @@
-# Vérification du pack — 17 octobre 2026
+# Vérification du pack — 3 novembre 2026
 
-- Six points d’entrée SKILL.md validés.
-- Syntaxe Python, shell et JSON vérifiée sans exécuter les pipelines de montage.
-- Recherche de secrets avec detect-secrets sur tous les fichiers : 19 alertes, toutes vérifiées comme empreintes SHA-256 du manifeste des presets ; aucune clé API ou autre secret détecté.
-- Contrôle complémentaire : pas de chemins personnels, URLs de reviews locales, fichiers .env, clés privées, historique Git source, caches ou médias personnels.
-- Archives source : Steve classique v4 et Melvyn v3. Métadonnées machine et rapports de review historiques retirés ; empreintes recalculées sur les fichiers distribués.
-- Cut Fusion conservé avec ses scripts et références. Zooms secs et progressifs ajoutés sous forme de skills indépendants.
-- Les presets exigent les médias de l’utilisateur. Aucun nouveau rendu vidéo ni test complet du pipeline ML n’a été lancé pour cette publication. Le scan ne constitue pas une garantie absolue d’absence de secret.
+- Huit skills, chacun avec son SKILL.md. Nouveau : `velvet` (commande `/velvet`), qui monte un rush de bout en bout.
+- Installation en une fois par `install.sh`, pilotée par Claude Code via INSTALL.md. Testée dans un dossier personnel vide (voir plus bas).
+- QualityCut mis à jour : transcription ElevenLabs Scribe si une clé est déjà présente sur la machine, sinon Whisper en local. Le pack ne contient et ne demande aucune clé.
+- L'aperçu à calques de Frame (panneau « Personnaliser ») a été retiré de l'outil d'habillage du preset Steve. Frame n'est pas fourni.
+- Syntaxe Python, shell et JSON vérifiée ; recherche de clés, chemins personnels et fichiers .env sur tous les fichiers.
+- Aucun nouveau rendu vidéo complet n'a été lancé pour cette publication. Le scan ne garantit pas de façon absolue l'absence de secret.

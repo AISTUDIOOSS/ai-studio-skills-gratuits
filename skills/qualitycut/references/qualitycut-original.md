@@ -7,7 +7,7 @@ description: "Monter et resserrer chirurgicalement des vidéos parlées dans Pal
 
 Produire un montage parlé dense sans silence parasite ni mot mangé. Traiter chaque bord individuellement ; ne jamais appliquer un padding ou un seuil sonore universel.
 
-Lire [references/nico-cut-profile.md](nico-cut-profile.md) avant toute modification. Dans Adobe Premiere Pro, lire aussi [references/premiere-recorded-workflow.md](premiere-recorded-workflow.md).
+Lire [references/nico-cut-profile.md](references/nico-cut-profile.md) avant toute modification. Dans Adobe Premiere Pro, lire aussi [references/premiere-recorded-workflow.md](references/premiere-recorded-workflow.md).
 
 ## Choisir l’environnement
 
