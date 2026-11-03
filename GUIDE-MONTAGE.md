@@ -1,6 +1,6 @@
 # Guide : monter une vidéo avec Claude
 
-En vidéo : [Personne ne te dit comment monter des vidéos avec Claude](LIEN-YOUTUBE-A-AJOUTER)
+En vidéo : [Personne ne te dit comment monter des vidéos avec Claude](https://www.youtube.com/watch?v=JZFZEnE00lo)
 
 ## En 5 étapes
 
