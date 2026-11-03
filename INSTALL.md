@@ -6,7 +6,7 @@ Tu es Claude Code. La personne t'a collé le lien de ce dépôt. Installe tout, 
    - s'il n'existe pas : `git clone https://github.com/AISTUDIOOSS/ai-studio-skills-gratuits.git ~/.ai-studio-montage`
    - s'il existe : `git -C ~/.ai-studio-montage pull --ff-only`
    - sans git : télécharge `https://github.com/AISTUDIOOSS/ai-studio-skills-gratuits/archive/refs/heads/main.zip` et décompresse-le dans `~/.ai-studio-montage`.
-2. Lance `bash ~/.ai-studio-montage/install.sh`, en arrière-plan : il peut durer longtemps la première fois, parce qu'il télécharge les outils. Il est sans risque si on le relance.
+2. Lance `bash ~/.ai-studio-montage/install.sh` au premier plan (pas en arrière-plan), avec le délai maximum de ta commande (10 minutes) : la première fois, il télécharge les outils. S'il est coupé avant `INSTALLATION OK`, relance exactement la même commande, autant de fois qu'il faut : il reprend sans risque.
 3. Lis la sortie :
    - Code 3 « Google Chrome manque » : demande à la personne de l'installer depuis google.com/chrome, puis relance l'étape 2.
    - Autre erreur : corrige-la si c'est un outil manquant, puis relance. Si c'est impossible, explique en une phrase ce qui bloque.
