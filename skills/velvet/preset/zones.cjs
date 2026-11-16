@@ -1,11 +1,15 @@
 // Contrôle des zones sûres Instagram sur la composition : cd PROJET && node PKG/preset/zones.cjs v1 (puppeteer-core installé dans PKG/preset par install.sh)
 // Chrome : CH=/chemin/chrome si Google Chrome n'est pas à sa place habituelle.
 const pp = require(require.resolve('puppeteer-core', { paths: [process.cwd(), __dirname] }));
-const path = require('path');
+const path = require('path'), fs = require('fs'), { pathToFileURL } = require('url');
+const L = process.env.LOCALAPPDATA || '';
+const chrome = [process.env.CH, '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  'C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
+  L && path.join(L, 'Google/Chrome/Application/chrome.exe')].find(c => c && fs.existsSync(c));
 (async () => {
-  const b = await pp.launch({ executablePath: process.env.CH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new', args: ['--allow-file-access-from-files'] });
+  const b = await pp.launch({ executablePath: chrome, headless: 'new', args: ['--allow-file-access-from-files'] });
   const g = await b.newPage(); await g.setViewport({ width: 1080, height: 1920 });
-  await g.goto('file://' + path.resolve(process.argv[2], 'composition/index.html'), { waitUntil: 'load' }); await new Promise(r => setTimeout(r, 2500));
+  await g.goto(pathToFileURL(path.resolve(process.argv[2], 'composition/index.html')).href, { waitUntil: 'load' }); await new Promise(r => setTimeout(r, 2500));
   const r = await g.evaluate(() => [...document.querySelectorAll('.cap')].map(c => { const p = c.querySelector('.tour') ? 45 : 0;
     return { t: c.textContent.trim(), id: c.id, x0: Math.round(c.offsetLeft - p), x1: Math.round(c.offsetLeft + c.offsetWidth + p), y0: Math.round(c.offsetTop), y1: Math.round(c.offsetTop + c.offsetHeight) }; }));
   let ko = 0;

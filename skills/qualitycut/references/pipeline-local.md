@@ -4,7 +4,7 @@ Les scripts proviennent de coupes-uptrainer v1.0.0 fourni par Nico. [Le document
 
 ## Préparer
 
-Mac Apple Silicon, clé ElevenLabs, Python 3.9–3.12, FFmpeg et ffprobe. Installer requirements.txt dans un environnement isolé si nécessaire. Choisir un nouveau dossier de travail par rush/révision hors synchronisation ; éviter de relancer preparer.sh sur une analyse finalisée, car les indices de mots peuvent changer.
+Mac Apple Silicon ou Windows 10/11 (Git Bash), clé ElevenLabs, Python 3.9–3.12, FFmpeg et ffprobe. Installer requirements.txt dans un environnement isolé si nécessaire. Choisir un nouveau dossier de travail par rush/révision hors synchronisation ; éviter de relancer preparer.sh sur une analyse finalisée, car les indices de mots peuvent changer.
 
 ```sh
 PYTHON=/chemin/venv/bin/python bash /chemin/qualitycut/scripts/preparer.sh /chemin/job /chemin/rush.mp4

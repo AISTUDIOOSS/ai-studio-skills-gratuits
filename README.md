@@ -12,7 +12,7 @@ Installe le pack montage d'AI Studio : https://github.com/AISTUDIOOSS/ai-studio-
 
 Claude installe tout. Quand c'est fini, ferme Claude Code, rouvre-le, et tape `/velvet` suivi du chemin de ton rush.
 
-Il faut un **Mac Apple Silicon** (M1, M2, M3, M4…), **Claude Code** et quelques Go d'espace libre. et Google Chrome. La première installation prend plusieurs minutes. Pas de mot de passe à donner. Il faut seulement une clé ElevenLabs, qui sert à retranscrire ta voix : Claude te la demande pendant l'installation.
+Il faut un **Mac Apple Silicon** (M1, M2, M3, M4…) ou un **PC Windows 10/11**, **Claude Code**, Google Chrome et quelques Go d'espace libre. La première installation prend plusieurs minutes. Pas de mot de passe à donner. Il faut seulement une clé ElevenLabs, qui sert à retranscrire ta voix : Claude te la demande pendant l'installation.
 
 ## Ce que tu reçois
 
@@ -31,7 +31,7 @@ Le guide pas à pas : [GUIDE-MONTAGE.md](GUIDE-MONTAGE.md).
 
 ## Limites
 
-- Mac Apple Silicon uniquement. Les Mac Intel et Windows ne sont pas pris en charge.
+- Mac Apple Silicon ou Windows 10/11. Les Mac Intel et Linux ne sont pas pris en charge.
 - Frame (l'application de montage d'AI Studio) n'est pas inclus.
 - L'outil d'alignement utilisé par QualityCut (MMS_FA) a une licence non commerciale : voir [les précisions](skills/qualitycut/references/pipeline-local.md#portée-de-laligneur) avant tout usage commercial.
 - Composants tiers : [THIRD-PARTY.md](THIRD-PARTY.md).

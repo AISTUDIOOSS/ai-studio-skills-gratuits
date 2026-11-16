@@ -6,7 +6,7 @@
 # Ensuite : écrire montage/<rush>.txt (passages gardés), puis lancer couper.py, verifier.py et exporter_cuts.py.
 set -euo pipefail
 I=$(cd "$(dirname "$0")" && pwd); PY=${PYTHON:-python3}; export PYTHONUTF8=1
-D=$1; shift; mkdir -p "$D"; D=$(cd "$D" && pwd); export MONTAGE_DOSSIER=$D
+D=$1; shift; mkdir -p "$D"; D=$(cd "$D" && pwd); command -v cygpath >/dev/null && D=$(cygpath -m "$D"); export MONTAGE_DOSSIER=$D
 mkdir -p "$D"/{sources,audio,transcription,montage,controle}
 CLIPS=()
 for f in "$@"; do

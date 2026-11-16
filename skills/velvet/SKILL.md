@@ -25,7 +25,7 @@ Lis `QC/SKILL.md` et `QC/references/pipeline-local.md`, et suis-les à la lettre
 ```bash
 PYTHON=~/.venv-velvet/bin/python bash ~/.claude/skills/qualitycut/scripts/preparer.sh PROJET/job /chemin/RUSH.mp4
 ```
-Puis choisis les prises, écris `montage/RUSH.txt` et lance couper, verifier, exporter_cuts comme décrit dans pipeline-local.md. Sortie : `PROJET/job/montage/RUSH-cuts.json` et `RUSH-analysis-minimale.json`. On ne touche plus jamais aux bords de ces coupes. Le premier lancement télécharge les modèles de transcription (quelques minutes).
+Puis choisis les prises, écris `montage/RUSH.txt` et lance couper, verifier, exporter_cuts comme décrit dans pipeline-local.md. Sortie : `PROJET/job/montage/RUSH-cuts.json` et `RUSH-analysis-minimale.json`. On ne touche plus jamais aux bords de ces coupes. Le premier lancement télécharge le modèle d'alignement des mots (quelques minutes).
 
 ## 2. Lire les mots
 ```bash

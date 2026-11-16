@@ -12,7 +12,8 @@ Tu es Claude Code. La personne t'a collé le lien de ce dépôt. Installe tout, 
    - Code 4 « Clé ElevenLabs manquante » : la transcription de la voix passe par ElevenLabs. Explique-lui simplement : créer un compte sur elevenlabs.io, puis Developers → API Keys → Create Key, et te coller la clé ici. Enregistre-la sans jamais la réafficher : `mkdir -p ~/.config/elevenlabs && printf '%s' 'LA_CLÉ' > ~/.config/elevenlabs/key && chmod 600 ~/.config/elevenlabs/key`, puis relance l'étape 2.
    - Code 5 « La clé ElevenLabs ne marche pas » : la clé est fausse ou le compte n'a plus de crédits. Demande-lui de vérifier sur elevenlabs.io et de te recoller une clé, enregistre-la comme ci-dessus, puis relance l'étape 2.
    - Autre erreur : corrige-la si c'est un outil manquant, puis relance. Si c'est impossible, explique en une phrase ce qui bloque.
-   - Mac Intel ou Windows : dis que ce pack ne fonctionne que sur un Mac Apple Silicon.
+   - Mac Intel, Linux ou WSL : dis que ce pack fonctionne sur un Mac Apple Silicon ou sur Windows 10/11 (Claude Code lancé directement dans Windows).
+   - Sur Windows, toutes les commandes passent par Git Bash, le terminal qu'utilise déjà Claude Code : n'utilise pas PowerShell.
 4. L'installation est terminée quand la sortie finit par `INSTALLATION OK`. Dis alors à la personne :
    - qu'elle doit fermer Claude Code puis le rouvrir, pour que les skills apparaissent ;
    - qu'elle peut ensuite taper `/velvet` suivi du chemin de son rush (une vidéo face cam verticale) : Claude coupe, habille et livre le MP4 ;
