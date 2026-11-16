@@ -14,7 +14,7 @@ def lettres(t):
     t = re.sub(r"[^a-z']", ' ', t)
     return [p for p in t.split() if p.strip("'")]
 
-def mots_whisper(clip):
+def mots_transcrits(clip):
     segs = json.load(open(f'{W}/transcription/{clip}.json'))
     mots = []
     for s in segs:
@@ -41,7 +41,7 @@ def emission_par_morceaux(model, wav):
     return torch.cat(parts)
 
 def aligner(clip, model, tok, ali):
-    mots = mots_whisper(clip)
+    mots = mots_transcrits(clip)
     import numpy as np, scipy.io.wavfile as wf
     sr, a = wf.read(f'{W}/audio/{clip}-16k.wav')
     wav = torch.from_numpy(a.astype(np.float32) / 32768.0).unsqueeze(0)

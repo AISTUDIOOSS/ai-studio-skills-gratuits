@@ -12,7 +12,7 @@ Installe le pack montage d'AI Studio : https://github.com/AISTUDIOOSS/ai-studio-
 
 Claude installe tout. Quand c'est fini, ferme Claude Code, rouvre-le, et tape `/velvet` suivi du chemin de ton rush.
 
-Il faut un **Mac Apple Silicon** (M1, M2, M3, M4…), **Claude Code** et quelques Go d'espace libre. et Google Chrome. La première installation prend plusieurs minutes. Pas de mot de passe à donner, aucune clé ni abonnement.
+Il faut un **Mac Apple Silicon** (M1, M2, M3, M4…), **Claude Code** et quelques Go d'espace libre. et Google Chrome. La première installation prend plusieurs minutes. Pas de mot de passe à donner. Il faut seulement une clé ElevenLabs, qui sert à retranscrire ta voix : Claude te la demande pendant l'installation.
 
 ## Ce que tu reçois
 

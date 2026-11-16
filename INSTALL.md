@@ -9,6 +9,8 @@ Tu es Claude Code. La personne t'a collé le lien de ce dépôt. Installe tout, 
 2. Lance `bash ~/.ai-studio-montage/install.sh` au premier plan (pas en arrière-plan), avec le délai maximum de ta commande (10 minutes) : la première fois, il télécharge les outils. S'il est coupé avant `INSTALLATION OK`, relance exactement la même commande, autant de fois qu'il faut : il reprend sans risque.
 3. Lis la sortie :
    - Code 3 « Google Chrome manque » : demande à la personne de l'installer depuis google.com/chrome, puis relance l'étape 2.
+   - Code 4 « Clé ElevenLabs manquante » : la transcription de la voix passe par ElevenLabs. Explique-lui simplement : créer un compte sur elevenlabs.io, puis Developers → API Keys → Create Key, et te coller la clé ici. Enregistre-la sans jamais la réafficher : `mkdir -p ~/.config/elevenlabs && printf '%s' 'LA_CLÉ' > ~/.config/elevenlabs/key && chmod 600 ~/.config/elevenlabs/key`, puis relance l'étape 2.
+   - Code 5 « La clé ElevenLabs ne marche pas » : la clé est fausse ou le compte n'a plus de crédits. Demande-lui de vérifier sur elevenlabs.io et de te recoller une clé, enregistre-la comme ci-dessus, puis relance l'étape 2.
    - Autre erreur : corrige-la si c'est un outil manquant, puis relance. Si c'est impossible, explique en une phrase ce qui bloque.
    - Mac Intel ou Windows : dis que ce pack ne fonctionne que sur un Mac Apple Silicon.
 4. L'installation est terminée quand la sortie finit par `INSTALLATION OK`. Dis alors à la personne :
@@ -17,4 +19,4 @@ Tu es Claude Code. La personne t'a collé le lien de ce dépôt. Installe tout, 
    - que les autres skills installés sont qualitycut, preset-steve, preset-melvyn, zooms-secs, zooms-progressifs, analyze-editing-inspiration et animations-html ;
    - que le guide est dans [GUIDE-MONTAGE.md](GUIDE-MONTAGE.md).
 
-L'installation ne demande aucune clé ni aucun compte payant. Les anciennes versions des skills déjà installés sont mises de côté dans `~/.ai-studio-montage-sauvegarde/`. Le pack ne contient pas Frame.
+L'installation demande une seule chose : une clé ElevenLabs (pour retranscrire la voix). Elle reste sur la machine, dans `~/.config/elevenlabs/key`. Les anciennes versions des skills déjà installés sont mises de côté dans `~/.ai-studio-montage-sauvegarde/`. Le pack ne contient pas Frame.

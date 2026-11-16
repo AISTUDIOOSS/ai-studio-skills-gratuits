@@ -1,9 +1,9 @@
 # Contrôle d'un montage par le son : on assemble le son des plans, on le retranscrit (par morceaux, comme pour
-# les rushes) et on compare au texte attendu. Écarts = reprise restée, mot coupé, « euh » oublié.
-import json, sys, os, re, difflib, unicodedata, numpy as np, scipy.io.wavfile as wf, mlx_whisper
+# les rushes, avec ElevenLabs Scribe) et on compare au texte attendu. Écarts = reprise restée, mot coupé, « euh » oublié.
+import json, sys, os, re, difflib, unicodedata, numpy as np, scipy.io.wavfile as wf
 W = os.path.abspath(os.path.expanduser(os.environ.get('MONTAGE_DOSSIER', '.')))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-PROMPT = "Euh, alors, euh... je, je vais, enfin, bref. Hum, du coup, en fait, voilà."
+import scribe
 
 def norm(t):
     t = unicodedata.normalize('NFKD', t.lower()); t = ''.join(c for c in t if not unicodedata.combining(c))
@@ -26,23 +26,8 @@ for k, s in enumerate(cp['segments'][:-1]):
     o = int(s['out'] / fps * sr); i2 = int(cp['segments'][k + 1]['in'] / fps * sr)
     r1 = np.sqrt(np.mean(a[o - 240:o] ** 2)); r2 = np.sqrt(np.mean(a[i2:i2 + 240] ** 2))
     sauts.append((k, 20 * np.log10(r1 + 1e-9), 20 * np.log10(r2 + 1e-9)))
-# retranscription par morceaux de 20 s environ, coupés dans les jonctions
-y16 = y[::3]
-bornes, debut = [], 0.0
-for j in jonctions:
-    if j - debut > 9: bornes.append((debut, j)); debut = j
-bornes.append((debut, len(y16) / 16000))
-texte = []
-for d, f in bornes:
-    x = y16[int(d * 16000):int(f * 16000)]
-    r = mlx_whisper.transcribe(x, path_or_hf_repo='mlx-community/whisper-large-v3-mlx',
-                               language='fr', initial_prompt=PROMPT, condition_on_previous_text=False)
-    tx = r['text'].strip(); ws = tx.split()
-    if ws and len(set(ws)) < 0.4 * len(ws):          # boucle de Whisper (« Ah Ah Ah… ») : on refait sans consigne
-        tx = mlx_whisper.transcribe(x, path_or_hf_repo='mlx-community/whisper-large-v3-mlx', language='fr',
-                                    condition_on_previous_text=False)['text'].strip()
-    texte.append(tx)
-entendu = ' '.join(texte)
+# retranscription du montage entier en un seul envoi (Scribe garde les reprises et les « euh »)
+entendu = scribe.texte(y[::3], 16000)
 attendu = ' '.join(m['texte'] for s in cp['segments'] for m in mots[s['mots'][0]:s['mots'][1] + 1])
 A, E = norm(attendu), norm(entendu)
 print('DURÉE', round(len(y) / sr, 1), 's —', len(cp['segments']), 'plans')

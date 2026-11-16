@@ -8,12 +8,12 @@ SKILLS="$HOME/.claude/skills"; VENV="$HOME/.venv-velvet"
 ok() { printf '  ✓ %s\n' "$1"; }
 stop() { printf '\n✗ %s\n' "$1"; exit "${2:-1}"; }
 
-echo "1/6 Machine"
+echo "1/7 Machine"
 [ "$(uname -s)" = Darwin ] || stop "Ce pack tourne sur Mac uniquement."
 [ "$(uname -m)" = arm64 ] || stop "Il faut un Mac Apple Silicon (M1, M2, M3, M4…). Les Mac Intel ne sont pas pris en charge."
 ok "Mac Apple Silicon"
 
-echo "2/6 Outils (ffmpeg, node, uv) — sans Homebrew ni mot de passe"
+echo "2/7 Outils (ffmpeg, node, uv) — sans Homebrew ni mot de passe"
 # Tout va dans ~/.local/bin ; un outil déjà présent sur la machine est gardé tel quel.
 BIN="$HOME/.local/bin"; OUTILS="$HOME/.ai-studio-montage-outils"; mkdir -p "$BIN" "$OUTILS"
 export PATH="$BIN:$PATH"
@@ -41,12 +41,12 @@ rm -rf "$TMPD"
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 [ -x "$CHROME" ] && ok "Google Chrome" || stop "Google Chrome manque : installe-le depuis google.com/chrome, puis relance l'installation." 3
 
-echo "3/6 Environnement Python ($VENV)"
+echo "3/7 Environnement Python ($VENV)"
 [ -x "$VENV/bin/python" ] || uv venv -q --python 3.12 "$VENV"
 uv pip install -q --python "$VENV/bin/python" -r "$SRC/skills/qualitycut/requirements.txt" pillow numpy
 ok "dépendances Python"
 
-echo "4/6 Skills dans $SKILLS"
+echo "4/7 Skills dans $SKILLS"
 mkdir -p "$SKILLS"; SAUVE="$HOME/.ai-studio-montage-sauvegarde/$(date +%Y%m%d-%H%M%S)"
 for d in "$SRC"/skills/*/; do
   n=$(basename "$d"); cible="$SKILLS/$n"
@@ -61,14 +61,23 @@ if [ "$SRC" != "$HOME/.ai-studio-montage" ]; then
   cp -R "$SRC" "$HOME/.ai-studio-montage"
 fi
 
-echo "5/6 Outils de rendu"
+echo "5/7 Outils de rendu"
 npm i -s --no-save --no-package-lock --prefix "$SKILLS/velvet/preset" puppeteer-core >/dev/null && ok "contrôle des zones sûres"
 npx --yes hyperframes@0.8.162 --version >/dev/null 2>&1 && ok "HyperFrames" || echo "  HyperFrames sera téléchargé au premier rendu"
 
-echo "6/6 Vérification"
+echo "6/7 Clé ElevenLabs (transcription)"
+CLE="$HOME/.config/elevenlabs/key"
+if [ ! -s "$CLE" ] && [ -n "${ELEVENLABS_API_KEY:-}" ]; then
+  mkdir -p "$(dirname "$CLE")"; printf '%s' "$ELEVENLABS_API_KEY" > "$CLE"; chmod 600 "$CLE"
+fi
+[ -s "$CLE" ] || stop "Clé ElevenLabs manquante : crée-la sur elevenlabs.io (Developers → API Keys), enregistre-la dans $CLE, puis relance l'installation." 4
+"$VENV/bin/python" "$SKILLS/qualitycut/scripts/scribe.py" --tester >/dev/null || stop "La clé ElevenLabs ne marche pas (refusée ou plus de crédits). Vérifie-la sur elevenlabs.io, puis relance l'installation." 5
+ok "clé ElevenLabs"
+
+echo "7/7 Vérification"
 ffmpeg -version >/dev/null && ffprobe -version >/dev/null && ok "ffmpeg $(ffmpeg -version | head -1 | cut -d' ' -f3)"
 ok "node $(node -v)"
-"$VENV/bin/python" -c "import numpy, scipy, mlx_whisper, torch, torchaudio, num2words, PIL" && ok "Python : whisper, torch, pillow"
+"$VENV/bin/python" -c "import numpy, scipy, torch, torchaudio, num2words, PIL" && ok "Python : torch, pillow"
 "$VENV/bin/python" -m py_compile "$SKILLS"/qualitycut/scripts/*.py "$SKILLS"/velvet/preset/*.py "$SKILLS"/preset-steve/outil-habillage/habiller.py && ok "scripts lisibles"
 "$VENV/bin/python" "$SKILLS/velvet/preset/habiller.py" --help >/dev/null && ok "moteur VELVET"
 node -e "require(require.resolve('puppeteer-core',{paths:['$SKILLS/velvet/preset']}))" && ok "puppeteer"

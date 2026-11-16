@@ -4,7 +4,7 @@ Les scripts proviennent de coupes-uptrainer v1.0.0 fourni par Nico. [Le document
 
 ## Préparer
 
-Mac Apple Silicon, Python 3.9–3.12, FFmpeg et ffprobe. Installer requirements.txt dans un environnement isolé si nécessaire. Choisir un nouveau dossier de travail par rush/révision hors synchronisation ; éviter de relancer preparer.sh sur une analyse finalisée, car les indices de mots peuvent changer.
+Mac Apple Silicon, clé ElevenLabs, Python 3.9–3.12, FFmpeg et ffprobe. Installer requirements.txt dans un environnement isolé si nécessaire. Choisir un nouveau dossier de travail par rush/révision hors synchronisation ; éviter de relancer preparer.sh sur une analyse finalisée, car les indices de mots peuvent changer.
 
 ```sh
 PYTHON=/chemin/venv/bin/python bash /chemin/qualitycut/scripts/preparer.sh /chemin/job /chemin/rush.mp4
@@ -13,7 +13,7 @@ export MONTAGE_DOSSIER=/chemin/job
 
 Normalisation AVANT l'analyse : source verticale 1080×1920, 30 i/s constantes, audio 48 kHz et 16 kHz. Vérifier rotation/cadrage. Conserver le rush original. La normalisation n'est pas à imposer à une timeline native existante.
 
-preparer.sh effectue : 1re passe ElevenLabs Scribe sur la vidéo entière (texte de base : mots plus justes, pas d'hallucination de fin), transcription Whisper par régions de parole rangée dans transcription/v1 comme source de rattrapage, alignement MMS_FA, recherche des zones parlées manquantes (Whisper, seuil relatif au bruit de fond du rush), fusion des passages que seul Whisper a entendus, nouvel alignement, liste numérotée. Clé Scribe : variable ELEVENLABS_API_KEY ou fichier ~/.config/elevenlabs/key (jamais affichée ni copiée dans le job). Sans clé, en cas d'échec de l'API ou avec QUALITYCUT_SCRIBE=0, preparer.sh repasse automatiquement sur l'ancien flux 100 % Whisper (vidéo entière puis morceaux). Les événements sonores repérés par Scribe sont dans transcription/RUSH-evenements.json ; la réponse Scribe brute convertie reste dans transcription/v1/RUSH-scribe.json. Lire transcription/LISTE-MOTS.txt entièrement ainsi que RUSH-zones-a-revoir.json. Ce second fichier signale les sons courts sans les ajouter automatiquement au texte. Examiner les zones qui touchent les passages retenus, les bords ou une fusion envisagée ; consigner leur classement dans la revue. Une absence de signalement ne prouve pas une absence de reprise.
+preparer.sh effectue : transcription ElevenLabs Scribe de la vidéo entière (seul moteur de transcription du pack), alignement MMS_FA, recherche des zones parlées manquantes (réécoutées par Scribe, seuil relatif au bruit de fond du rush), ajout des passages manquants, nouvel alignement, liste numérotée. Clé Scribe : variable ELEVENLABS_API_KEY ou fichier ~/.config/elevenlabs/key (jamais affichée ni copiée dans le job) ; sans clé, preparer.sh s'arrête et dit comment l'ajouter. Les événements sonores repérés par Scribe sont dans transcription/RUSH-evenements.json. Lire transcription/LISTE-MOTS.txt entièrement ainsi que RUSH-zones-a-revoir.json. Ce second fichier signale les sons courts sans les ajouter automatiquement au texte. Examiner les zones qui touchent les passages retenus, les bords ou une fusion envisagée ; consigner leur classement dans la revue. Une absence de signalement ne prouve pas une absence de reprise.
 
 Écrire montage/RUSH.txt, une sélection par ligne : `premier_index-dernier_index # motif`. Les indices commencent à zéro et appartiennent uniquement à cette transcription. Garder la transcription source ; corrections textuelles facultatives dans montage/RUSH-texte.json.
 

@@ -1,18 +1,18 @@
 # Complète la transcription : toute zone où l'on parle (énergie) sans mot reconnu est retranscrite en petites
 # fenêtres, puis ajoutée aux segments (il faut ensuite réaligner avec moteur/aligner.py).
-import json, re, sys, os, numpy as np, scipy.io.wavfile as wf, mlx_whisper
+import json, re, sys, os, numpy as np, scipy.io.wavfile as wf
 W = os.path.abspath(os.path.expanduser(os.environ.get('MONTAGE_DOSSIER', '.')))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from couper import enveloppe, SEUIL_DB
-# génériques que Whisper invente sur les silences de fin
+import scribe
+# génériques parfois inventés sur les silences de fin
 HALLU = re.compile(r"sous-titr|-?titres? par|titrage|ST' ?501|Amara|Merci d'avoir regardé|Abonnez", re.I)
-PROMPT = "Euh, alors, euh... je, je vais, enfin, bref. Hum, du coup, en fait, voilà."
 
 def zones_oubliees(clip):
     mots = json.load(open(f'{W}/transcription/{clip}-aligne.json')); db = enveloppe(clip)
     bornes = [(0.0, mots[0]['debut'])] + [(mots[i]['fin'], mots[i + 1]['debut']) for i in range(len(mots) - 1)] \
              + [(mots[-1]['fin'], len(db) * 0.005)]
     # seuil relatif au bruit de fond réel du rush (médiane des blancs + 10 dB) : une pièce bruyante à -50 dB
-    # ne doit pas passer pour de la parole, sinon Whisper y recopie les mots voisins
+    # ne doit pas passer pour de la parole, sinon la retranscription y recopie les mots voisins
     blancs = [db[int(a / 0.005):int(b / 0.005)] for a, b in bornes if b - a >= 0.3]
     seuil = max(SEUIL_DB, float(np.median(np.concatenate(blancs))) + 10) if blancs else SEUIL_DB
     out = []
@@ -64,13 +64,9 @@ def main():
         for a, b in zones_oubliees(clip):
             for d, f in fenetres(a, b, db):
                 d0, f0 = max(0, d - 0.15), min(len(x) / sr, f + 0.15)
-                r = mlx_whisper.transcribe(x[int(d0 * sr):int(f0 * sr)], path_or_hf_repo='mlx-community/whisper-large-v3-mlx',
-                                           language='fr', word_timestamps=True, initial_prompt=PROMPT,
-                                           condition_on_previous_text=False)
-                for s in r['segments']:
-                    ws = [dict(w, start=round(d0 + w['start'], 3), end=round(d0 + w['end'], 3)) for w in s.get('words', [])
-                          if d - 0.1 <= d0 + w['start'] <= f + 0.1]
-                    if not ws or s['text'].strip() in PROMPT or HALLU.search(s['text']): continue
+                for s in scribe.transcrire(x[int(d0 * sr):int(f0 * sr)], sr, decalage=d0):
+                    ws = [w for w in s['words'] if d - 0.1 <= w['start'] <= f + 0.1]
+                    if not ws or HALLU.search(s['text']): continue
                     segs.append({'start': ws[0]['start'], 'end': ws[-1]['end'], 'text': ' '.join(w['word'].strip() for w in ws),
                                  'words': ws, 'complement': True})
                     ajout += len(ws)
